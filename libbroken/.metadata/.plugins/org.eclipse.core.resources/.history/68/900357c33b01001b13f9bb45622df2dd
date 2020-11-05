@@ -1,0 +1,22 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class BaekJoonFraction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		
+		int num = input.nextInt();
+		int temp = num;
+		int i =1;
+		do
+		{
+			temp-=i;
+		}while(temp>0);
+		System.out.println(temp+"/"+i);
+	}
+
+}

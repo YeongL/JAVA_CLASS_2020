@@ -1,0 +1,16 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Scanner input = new Scanner(System.in);
+		int w = 49;
+		double g = 0.2683;
+		
+		
+	}
+
+}

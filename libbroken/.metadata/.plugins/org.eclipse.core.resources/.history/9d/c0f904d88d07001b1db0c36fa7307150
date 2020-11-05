@@ -1,0 +1,48 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int testcase = input.nextInt();
+		
+		for(int i = 0; i<testcase;i++)
+		{
+			int x = input.nextInt();
+			int y = input.nextInt();
+			
+			
+			double num = (y-x)/2;
+			int cnt = 0;
+			while(num>0)
+			{
+				cnt++;
+				num -= cnt;
+				
+				
+			}
+			if(num == 0)
+			{
+				cnt = 2*cnt +1;
+			}
+			else
+			{
+				cnt = 2*cnt;
+			}
+			System.out.println(cnt);
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+
+}
+

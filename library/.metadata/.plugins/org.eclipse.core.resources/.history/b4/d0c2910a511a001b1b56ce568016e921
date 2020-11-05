@@ -1,0 +1,9 @@
+package GUIppt;
+import java.awt.*;
+public class BorderTest {
+
+	private Frame frame;
+	private Button center,west,east,south;
+	private TextField tf1;
+
+}

@@ -1,0 +1,49 @@
+package ppt;
+
+public class NoteCellPhone extends CellPhone{
+	NoteCellPhone(String model, String color, int channel) {
+        this.model = model;
+        this.color = color;
+        
+    }
+	
+	void Drawing(boolean[] draw)
+	{
+		if(draw[0])
+		{
+			System.out.println("이미 열려 있습니다");
+		}
+		else
+		{
+			draw[0] = true;
+			System.out.println("그림판을 열었습니다.");
+		}
+		
+	}
+	
+	void penDrawing(boolean[] draw, boolean[] drawing)
+	{
+		if(!draw[0])
+		{
+			System.out.println("그림판이 열려있지 않습니다.");
+		}
+		else
+		{
+			System.out.println("펜으로 그림을 그렸습니다.");
+			drawing[0] = true;
+		}
+		
+	}
+	
+	void deleteDrawing(boolean[] drawing)
+	{
+		System.out.println("그림을 지웠습니다.");
+		drawing[0] = false;
+	}
+	
+	void endDrawing()
+	{
+		System.out.println("그림판을 닫았습니다.");
+	}
+	
+}

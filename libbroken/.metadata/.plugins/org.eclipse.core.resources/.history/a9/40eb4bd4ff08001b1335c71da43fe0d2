@@ -1,0 +1,36 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		input.close();
+		
+		
+		star(N);
+		
+		
+	}
+	
+	public static void star(int x, int y,int n,boolean blank)
+	{
+		if(n==3)
+		{
+			System.out.println("*");
+		}
+		else
+		{
+			star(n/3);
+		}
+	}
+	
+	
+	
+	
+
+}
+

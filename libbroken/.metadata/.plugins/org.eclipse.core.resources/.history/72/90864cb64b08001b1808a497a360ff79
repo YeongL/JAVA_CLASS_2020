@@ -1,0 +1,30 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int d1x = input.nextInt();
+		int d1y = input.nextInt();
+		int d2x = input.nextInt();
+		int d2y = input.nextInt();
+		int d3x = input.nextInt();
+		int d3y = input.nextInt();
+		
+		
+		
+		
+		System.out.println();
+		
+	}
+	
+	
+	
+	
+	
+
+}
+

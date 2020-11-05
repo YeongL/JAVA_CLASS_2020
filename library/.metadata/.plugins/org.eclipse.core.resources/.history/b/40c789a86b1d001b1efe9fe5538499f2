@@ -1,0 +1,51 @@
+package ppt;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ButtonTest {
+
+	private Frame frame;
+	private Button btn;
+	
+	public ButtonTest()
+	{
+		frame = new Frame("Login");
+		btn = new Button("»Æ¿Œ");
+		
+		
+		       
+		
+	}
+	
+	public void startFrame()
+	{
+		btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				btn.setLabel("¥≠∑∂¥Ÿ");
+			}
+		});
+		btn.setSize(100, 50);        
+		btn.setLocation(100, 75);
+		frame.add(btn); 
+		frame.setSize(300, 200);
+		frame.setLayout(null);   
+		frame.setVisible(true); 
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ButtonTest border = new ButtonTest();        
+		border.startFrame();
+	}
+	
+	
+	
+
+}

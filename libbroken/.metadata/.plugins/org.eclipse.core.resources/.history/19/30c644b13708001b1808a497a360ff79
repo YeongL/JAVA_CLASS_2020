@@ -1,0 +1,47 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int M = input.nextInt();
+		int N = input.nextInt();
+		input.close();
+		for( int k = M; k<=N; k++)
+		{
+			boolean isPrime = true;
+			if(k==1)
+			{
+				continue;
+			}
+			for(int j=2;j<k;j++)//소수인지 체크하는 공간
+			{
+				
+				if(k%j == 0)
+				{
+					isPrime = false;
+					break;
+				}
+				
+			}
+			
+			if(isPrime)
+			{
+				System.out.println(k);
+			}
+		}
+			
+		
+		
+		
+	}
+	
+	
+	
+
+}
+

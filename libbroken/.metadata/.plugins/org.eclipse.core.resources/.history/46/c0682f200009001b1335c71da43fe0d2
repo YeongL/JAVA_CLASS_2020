@@ -1,0 +1,40 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static int N = 0;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		N = input.nextInt();
+		input.close();
+		
+		
+		star(0,0,N, false);
+		
+		
+	}
+	char[][] arr = new char[N][N];
+	public static void star(int x, int y,int n,boolean blank)
+	{
+		if(blank)
+		{
+			for(int i=x;i<x+n;i++)
+			{
+				for(int j=y;j<y+n;j++)
+				{
+					arr[i][j] = ' ';
+				}
+			}
+		}
+		
+	}
+	
+	
+	
+	
+
+}
+

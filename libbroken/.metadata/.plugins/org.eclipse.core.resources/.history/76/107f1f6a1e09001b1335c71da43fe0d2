@@ -1,0 +1,6 @@
+package ppt;
+
+public class NoteCellPhone extends CellPhone{
+	
+
+}

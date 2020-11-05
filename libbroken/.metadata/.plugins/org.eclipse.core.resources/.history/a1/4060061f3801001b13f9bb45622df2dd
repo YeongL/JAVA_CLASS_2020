@@ -1,0 +1,18 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class BaekjoonLetters {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		String words = input.nextLine();
+		int temp =0;
+		for(int i=0;i<words.length();i++)
+		{
+			
+		}
+	}
+
+}

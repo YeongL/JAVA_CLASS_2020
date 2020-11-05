@@ -1,0 +1,27 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		String word = input.next();
+		input.close();
+		for(int i =1;i<=20;i++)
+		{
+			System.out.print(word);
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+
+}
+

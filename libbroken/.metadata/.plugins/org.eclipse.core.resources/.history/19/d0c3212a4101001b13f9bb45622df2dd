@@ -1,0 +1,42 @@
+package kr.co.green;
+
+public class BaekJoonBee {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		1
+		2~7
+		8~19
+		20~37
+		38~61
+		1
+		6
+		12
+		18
+		24
+		Scanner input = new Scanner(System.in);
+		inputnum = input.nextInt();
+		int temp = 1;
+		int result = 0;
+		while(true)
+		{
+			
+			
+			if(inputnum == 1)
+			{
+				System.out.println(temp);
+				break;
+			}
+			temp+=result*6;
+			if(temp-result*6<=inputnum<=temp)
+			{
+				System.out.println(result+1);
+				break;
+			}
+			result++;
+			
+		}
+		
+	}
+
+}

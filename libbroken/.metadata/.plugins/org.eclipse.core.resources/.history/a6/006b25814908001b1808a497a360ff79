@@ -1,0 +1,14 @@
+
+
+public class TvTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TV t1 = new TV();
+
+		t1.channel = 7;
+		
+		System.out.println(t1.channel);
+	}
+
+}

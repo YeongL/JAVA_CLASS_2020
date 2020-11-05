@@ -1,0 +1,14 @@
+package GUIppt;
+import java.awt.*;
+public class EventTest {
+
+	private Frame frame;
+	Private 
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

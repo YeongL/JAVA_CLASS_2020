@@ -1,0 +1,35 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class BaekJoonBee {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner input = new Scanner(System.in);
+		int inputnum = input.nextInt();
+		int temp = 1;
+		int result = 0;
+		while(true)
+		{
+			
+			
+			if(inputnum == temp)
+			{
+				System.out.println(temp);
+				break;
+			}
+			temp+=result*6;
+			if(((temp-result*6+1)<=inputnum) && (inputnum <=temp))
+			{
+				System.out.println(result+1);
+				break;
+			}
+			result++;
+			temp++;
+		}
+		
+	}
+
+}

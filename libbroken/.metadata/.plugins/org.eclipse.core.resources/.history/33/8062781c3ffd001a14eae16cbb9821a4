@@ -1,0 +1,13 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class ArrayTest2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String names[] = new String[] {"À±Á¾Çõ", "Àü¿ìÄ¡", "ÀÌµµ", "¼¼Á¾´ë¿Õ","ÀÌ¹ÎÁö","ÀÌ³ª¶ó","ÀÌ¹Î¼ö"};
+		Scanner input = new Scanner(System.in);
+	}
+
+}

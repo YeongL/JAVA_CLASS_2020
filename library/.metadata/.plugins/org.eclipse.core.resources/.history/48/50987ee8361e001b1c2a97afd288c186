@@ -1,0 +1,43 @@
+package kr.co.green;
+
+import java.io.*;
+import java.util.*;
+
+import java.util.Scanner;
+
+public class Main2 {
+ 
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+        Scanner input = new Scanner(System.in);
+    	int[][] arr = new int[4][2];
+        int[] colsum = new int[2];
+        int[] rowsum = new int[4];
+        int sum = 0;
+    	for(int i=0;i<4;i++)
+    	{
+    		for(int j=0;j<2;j++)
+    		{
+    			arr[i][j] = input.nextInt();
+    			rowsum[i]+=arr[i][j];
+    			colsum[j]+=arr[i][j];
+    			sum+=arr[i][j];
+    		}
+    	}
+        
+        for(int i=0;i<rowsum.length;i++)
+        {
+        	System.out.print(rowsum[i]+" ");
+        }
+        System.out.print("\n");
+        
+        for(int i=0;i<colsum.length;i++)
+        {
+        	System.out.print(colsum[i]+" ");
+        }
+        System.out.print("\n");
+        System.out.println(sum);
+        
+    }
+ 
+}

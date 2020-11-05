@@ -1,0 +1,10 @@
+package ppt;
+
+public class NoteCellPhone extends CellPhone{
+	NoteCellPhone(String model, String color, int channel) {
+        this.model = model;
+        this.color = color;
+        
+    }
+
+}

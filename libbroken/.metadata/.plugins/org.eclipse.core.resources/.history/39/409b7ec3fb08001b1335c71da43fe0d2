@@ -1,0 +1,45 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int sm = 10000;
+		int bg = 0;
+		int tmp = 0;
+		for(int i=0;i<10;i++)
+		{
+			tmp = input.nextInt();
+			if(tmp>=100 && tmp<sm)
+			{
+				sm = tmp;
+			}
+			
+			if(tmp<100 && tmp>bg)
+			{
+				bg = tmp;
+			}
+		}
+		if(bg == 0)
+		{
+			bg = 100;
+		}
+		if(sm == 10000)
+		{
+			sm = 100;
+		}
+		System.out.println(bg + " "+ sm);
+		
+		
+	}
+	
+	
+	
+	
+	
+
+}
+

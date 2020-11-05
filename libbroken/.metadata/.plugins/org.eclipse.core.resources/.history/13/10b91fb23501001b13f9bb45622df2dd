@@ -1,0 +1,26 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class BaekJoonAverage {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int score;
+		int avg =0;
+		for(int i=0;i<5;i++)
+		{
+			score = input.nextInt();
+			if(score<=40)
+			{
+				score = 40;
+			}
+			avg+=score;
+		}
+		System.out.println(score/5);
+		
+		
+	}
+
+}

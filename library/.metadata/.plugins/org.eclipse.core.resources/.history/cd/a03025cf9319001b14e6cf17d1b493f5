@@ -1,0 +1,17 @@
+package booknppt;
+
+public class HangultoNumEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String input = "ªÔΩ ∏∏ªÔ√µπÈΩ ø¿";
+		System.out.println(input);
+		System.out.println(hangulToNum(input));
+	}
+	
+	private static long hangulToNum(String input)
+	{
+		
+	}
+
+}

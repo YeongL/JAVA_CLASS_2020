@@ -1,0 +1,12 @@
+package kr.co.green;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("¡ŸπŸ≤ﬁ");
+		System.out.print("¡Ÿæ»πŸ≤ﬁ");
+		System.out.print("¡Ÿæ»πŸ≤ﬁ");
+	}
+
+}

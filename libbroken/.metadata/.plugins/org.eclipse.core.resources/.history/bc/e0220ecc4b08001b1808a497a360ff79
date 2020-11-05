@@ -1,0 +1,44 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int d1x = input.nextInt();
+		int d1y = input.nextInt();
+		int d2x = input.nextInt();
+		int d2y = input.nextInt();
+		int d3x = input.nextInt();
+		int d3y = input.nextInt();
+		
+		int d4x;
+		int d4y;
+		
+		
+		if(d1x == d2x)
+		{
+			d4x = d3x;
+		}
+		else if(d1x == d3x)
+		{
+			d4x = d2x;
+		}
+		else
+		{
+			d4x = d1x;
+		}
+		
+		System.out.println(d4x+" "+d4y);
+		
+	}
+	
+	
+	
+	
+	
+
+}
+

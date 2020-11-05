@@ -1,0 +1,51 @@
+package kr.co.green;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class BaekJoonVPS {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int num = input.nextInt();
+		boolean result = true;
+
+		Stack<Character> stackList = new Stack<Character>();
+
+		for (int i = 0; i < num; i++) {
+			String temp = input.nextLine();
+			for (int j = 0; j < temp.length(); j++) {
+				if (temp.charAt(j) == '(')// '('면 푸시해라
+				{
+					stackList.push(temp.charAt(j));
+				} else if (temp.charAt(j) == ')')// ')'면 내가 앞에 넣은 (를 팝해라
+				{
+					if (!stackList.empty()) {
+						stackList.pop();
+					} else // 뭐? '('를 안넣었는데 ')'가 나왔어? 넌 틀렸어!
+					{
+						result = false;
+						break;
+					}
+				}
+
+			}
+
+			if (stackList.size() != 0)// '('를 넣었는데 안빼감
+			{
+				result = false;
+			}
+
+			stackList.clear();
+
+			if (result == false) {
+				System.out.println("NO");
+			} else {
+				System.out.println("YES");
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,11 @@
+package kr.co.green;
+
+public class ArrayCreateByNewExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr1 = new int[3];
+		
+	}
+
+}

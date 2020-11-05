@@ -1,0 +1,38 @@
+package pptslides;
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int num = input.nextInt();
+		int num2 = input.nextInt();
+		int tmp = 2;
+		
+		while(tmp<=num)
+		{
+			while(num%tmp == 0)
+			{
+				num = num/tmp;
+				sb.append(tmp+"\n");
+			}
+			tmp++;
+		}
+		System.out.println();
+		System.out.println();
+		
+//		bw.write(sb.toString());
+//        bw.newLine();
+//        bw.flush();
+//        bw.close();
+		
+		
+	}
+
+}

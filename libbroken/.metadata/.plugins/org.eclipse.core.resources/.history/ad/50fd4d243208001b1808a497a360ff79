@@ -1,0 +1,29 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int x = input.nextInt();
+		x = x+5;
+		int y = input.nextInt();
+		y = 2*y;
+		
+		System.out.println("width = "+x);
+		System.out.println("length = "+y);
+		System.out.println("area = "+(x*y));
+		
+		
+		
+		
+	}
+	
+	
+	
+
+}
+

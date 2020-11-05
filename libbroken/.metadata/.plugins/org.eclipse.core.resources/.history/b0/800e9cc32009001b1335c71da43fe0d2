@@ -1,0 +1,39 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class Main {
+	public static StringBuilder sb = new StringBuilder();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int num =input.nextInt();
+		input.close();
+		int[] cnt = {0};
+		hanoi(num,1,3,2,cnt);
+		System.out.println(cnt[0]);
+		
+		System.out.print(sb);
+		}
+	
+
+
+	static void hanoi(int num, int start, int end, int center,int[] count)
+	{
+		if(num==1)
+		{
+			count[0]++;
+			sb.append(start+" "+center+"\n");
+			
+			
+		}
+		else
+		{
+			count[0]++;
+			hanoi(num-1,start,end,center,count);
+			sb.append(start+" "+center+"\n");
+			hanoi(num-1,center,start,end,count);
+		}
+	}	
+
+}

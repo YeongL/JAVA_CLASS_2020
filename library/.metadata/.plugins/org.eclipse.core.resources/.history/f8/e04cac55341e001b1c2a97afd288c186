@@ -1,0 +1,17 @@
+package kr.co.green;
+
+import java.io.*;
+import java.util.*;
+
+import java.util.Scanner;
+
+public class Main2 {
+ 
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+        int[][] arr = {{3,5,9},{2,11,5},{8,30,10},{22,5,1}};
+        int[] sum = new int[3];
+        
+    }
+ 
+}

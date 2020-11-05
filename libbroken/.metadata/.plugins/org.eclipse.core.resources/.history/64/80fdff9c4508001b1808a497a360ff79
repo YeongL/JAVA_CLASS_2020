@@ -1,0 +1,22 @@
+
+public class TV {
+
+	class Tv{
+		String color;
+		boolean power;
+		int channel;
+		void power() {power = !power;}
+		void channelUp() {channel++;}
+		void channelDown() {channel--;}
+		void Tv() {}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Tv t1 = new Tv();
+
+		t1.channel = 7;
+		
+		System.out.println(t1.channel);
+	}
+
+}

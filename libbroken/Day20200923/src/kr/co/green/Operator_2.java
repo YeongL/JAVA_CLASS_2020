@@ -1,0 +1,16 @@
+package kr.co.green;
+
+public class Operator_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("논리연산자 && 0부터 9 사이의 숫자 범위 설정");
+		int logic1 = 5;
+		int logic2 = 10;
+		String result = "";
+		
+		result = (logic1>0 && logic2<9)?"0부터 9 사이의 범위이다.":"0부터 9 사이의 범위가 아니다.";
+		System.out.println(result);
+	}
+
+}

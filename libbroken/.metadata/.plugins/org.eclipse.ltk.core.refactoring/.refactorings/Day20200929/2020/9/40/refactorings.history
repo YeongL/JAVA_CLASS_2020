@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;kr.co.green.DFS.java&apos; to &apos;DFSSearch.java&apos;&#x0D;&#x0A;- Original project: &apos;Day20200929&apos;&#x0D;&#x0A;- Original element: &apos;kr.co.green.DFS.java&apos;&#x0D;&#x0A;- Renamed element: &apos;kr.co.green.DFSSearch.java&apos;" description="Rename compilation unit &apos;DFS.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;kr.co.green{DFS.java" name="DFSSearch.java" references="false" stamp="1601351433292" version="1.0"/>
+</session>

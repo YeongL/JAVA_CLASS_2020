@@ -1,0 +1,25 @@
+package ppt;
+
+public class NoteCellPhone extends CellPhone{
+	NoteCellPhone(String model, String color, int channel) {
+        this.model = model;
+        this.color = color;
+        
+    }
+	
+	void Drawing()
+	{
+		System.out.println("그림판을 열었습니다.");
+	}
+	
+	void penDrawing()
+	{
+		System.out.println("펜으로 그림을 그렸습니다.");
+	}
+	
+	void deleteDrawing()
+	{
+		System.out.println("그림을 지웠습니다.");
+	}
+	
+}

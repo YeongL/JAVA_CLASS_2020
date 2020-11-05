@@ -1,0 +1,21 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class BaekJoonX {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		
+		int num1 = input.nextInt();
+		int num2 = input.nextInt();
+		
+		int num3 = num1*(num2%10);
+		int num4 = num1*(num2/10);
+		int num5 = num1*(num2/100);
+		int num6 = num1*num2;
+		
+	}
+
+}

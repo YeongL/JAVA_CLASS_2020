@@ -1,0 +1,23 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int numA =input.nextInt();
+		
+		int numB =input.nextInt();
+		
+		for(int j=1;j<=9;j++)
+		{
+			for(int i=numA;i<=numB;i+=((numA-numB)/Math.abs(numA-numB)))
+			{
+				System.out.printf("%d * %d =%.3d   ",i);
+			}
+		}
+	}
+
+}

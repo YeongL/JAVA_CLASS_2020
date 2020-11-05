@@ -1,0 +1,55 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static boolean[] primeNum;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		while(true)
+		{
+			int M = input.nextInt();
+			if(M == 0)
+			{
+				break;
+			}
+			
+			primeNum = new boolean[2*M+1];
+			getPrimeNum();
+			int cnt = 0;
+			for( int k = M; k<=2*M; k++)
+			{
+				if(!primeNum[k])
+				{
+					cnt+=1;
+				}
+			}
+			System.out.println(cnt);	
+		}
+		input.close();
+		
+		
+		
+		
+	}
+	
+	public static void getPrimeNum()
+	{
+		primeNum[1] = true;
+		for(int i=2;i<primeNum.length;i++)
+		{
+			for(int j=2;i*j<primeNum.length;j++)
+			{
+				primeNum[i*j] = true;
+			}
+		}
+		
+	}
+	
+	
+	
+
+}
+

@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\DEVELOP\JAVA_CLASS_2020\library\.metadata\.plugins\org.eclipse.jdt.core
+2742968923.index
+2394231702.index

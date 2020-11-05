@@ -1,0 +1,23 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int num =input.nextInt();
+		input.close();
+		
+		
+		}
+	
+
+
+	static void hanoi(int num, int start, int end, int center)
+	{
+		
+	}	
+
+}

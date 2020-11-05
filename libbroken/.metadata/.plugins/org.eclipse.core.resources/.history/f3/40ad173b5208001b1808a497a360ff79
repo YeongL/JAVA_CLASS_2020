@@ -1,0 +1,49 @@
+package kr.co.green;
+
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int tc = input.nextInt();
+		
+		for(int i=0;i<tc;i++)
+		{
+			int x1 = input.nextInt();
+			int y1 = input.nextInt();
+			int r1 = input.nextInt();
+			int x2 = input.nextInt();
+			int y2 = input.nextInt();
+			int r2 = input.nextInt();
+			
+			double len = Math.sqrt((Math.pow(x1-x2, 2)+Math.pow(y1-y2, 2)));
+			if(len < (r1+r2))
+			{
+				System.out.println(2);
+			}
+			else if(len == r1+r2)
+			{
+				System.out.println(1);
+			}
+			else
+			{
+				System.out.println(0);
+			}
+			else if(len<Math.abs(r1-r2))
+			{
+				System.out.println(-1);
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+
+}
+

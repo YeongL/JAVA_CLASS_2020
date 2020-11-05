@@ -1,0 +1,23 @@
+package GUIppt;
+import java.awt.*;
+public class EventTest {
+
+	private Frame f;
+	private Button but1;
+	private Button but2;
+	private Button but3;
+	private Button but4;
+	private Button but5;
+	
+	public EventTest()
+	{
+		f=new Frame("event handler example");
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

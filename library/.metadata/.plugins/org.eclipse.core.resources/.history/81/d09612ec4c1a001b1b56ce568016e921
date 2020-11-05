@@ -1,0 +1,11 @@
+package ppt;
+import java.util.*;
+public class CalenderEx1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Calendar today = Calendar.getInstance();
+		System.out.println(today.get());
+	}
+
+}

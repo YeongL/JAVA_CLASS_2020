@@ -1,0 +1,18 @@
+
+public class Car {
+	String color;
+	int cc;
+	Car(String color, int cc)
+	{
+		this.color = color;
+		this.cc = cc;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Car myCar1 = new Car("Black", 3000);
+		
+
+	}
+
+}

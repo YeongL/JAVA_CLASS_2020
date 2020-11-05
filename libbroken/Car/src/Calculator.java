@@ -1,0 +1,23 @@
+
+public class Calculator {
+
+	int plus(int x, int y) {
+		return (x + y);
+	}
+
+	double plus(double x, double y) {
+		return x + y;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Calculator myCalc = new Calculator();
+		double res1 = myCalc.plus(5, 10);
+		double res2 = myCalc.plus(10.5, 20.3);
+		System.out.println(res1);
+		System.out.println(res2);
+
+	}
+
+}

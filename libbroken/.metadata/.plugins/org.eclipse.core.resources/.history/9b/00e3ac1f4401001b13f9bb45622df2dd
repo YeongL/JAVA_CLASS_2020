@@ -1,0 +1,28 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class BaekJoonSnowWhite {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int[] num = new int[9];
+		int sum = 0;
+		for(int i=0;i<9;i++)
+		{
+			num[i] = input.nextInt();
+			sum+=num[i];
+		}
+		
+		for(int i =0; i<9; i++)
+		{
+			for(int j=0;j<9;j++)
+			{
+				int[i]
+			}
+		}
+		
+	}
+
+}

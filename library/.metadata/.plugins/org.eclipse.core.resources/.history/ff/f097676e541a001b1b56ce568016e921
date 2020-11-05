@@ -1,0 +1,20 @@
+package GUIppt;
+import java.awt.*;
+public class FlowTest {
+	
+	private Frame frame;
+	private Button but1,but2,but3;
+	
+	public FlowTest()
+	{
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

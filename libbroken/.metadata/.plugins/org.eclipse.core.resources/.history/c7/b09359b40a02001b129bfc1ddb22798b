@@ -1,0 +1,38 @@
+package kr.co.green;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int h = input.nextInt();
+		int m = input.nextInt();
+		
+		if(m-45<0)
+		{
+			if(h-1<0)
+			{
+				h=23;
+				
+			}
+			else
+			{
+				h=h-1;
+			}
+			m=m+60-45;
+		}
+		else
+		{
+			
+			
+			m=m-45;
+		}
+		
+		System.out.println(h+" "+m);
+		
+		
+	}
+
+}
