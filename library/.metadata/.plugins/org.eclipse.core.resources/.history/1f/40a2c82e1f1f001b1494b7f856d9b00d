@@ -1,0 +1,22 @@
+package kr.co.green;
+
+import java.io.*;
+import java.util.*;
+
+import java.util.Scanner;
+
+public class Main2 {
+ 
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+    	BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	
+        
+        
+             
+        
+        
+    }
+ 
+}
