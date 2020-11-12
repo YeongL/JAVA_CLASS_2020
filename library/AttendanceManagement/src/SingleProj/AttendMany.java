@@ -72,6 +72,22 @@ public class AttendMany extends JFrame {
 				}
 			}
 		});
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dispose();
+			}
+		});
+		btn4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+		});
 		btn1.setSize(50, 25);        
 		btn1.setLocation(20, 165);
 		btn2.setSize(50, 25);        
