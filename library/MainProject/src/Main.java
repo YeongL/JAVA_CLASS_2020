@@ -14,69 +14,43 @@ import java.util.Stack;
  
 public class Main {
  
-    public static void main(String[] args) throws NumberFormatException, IOException {
+    
+
+	public static void main(String[] args)  throws IOException{
         // TODO Auto-generated method stub
-    	BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    	StringBuilder sb = new StringBuilder();
-    	
-    	//Scanner input = new Scanner(System.in);
-        
-        int tc = Integer.parseInt(bf.readLine());
-        PriorityQueue<Integer> minhp = new PriorityQueue<Integer>();
-        PriorityQueue<Integer> maxhp = new PriorityQueue<Integer>(Collections.reverseOrder());
-        for(int i=0;i<tc;i++)
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Input coin's side... ");
+        int coinside = input.nextInt();
+        System.out.print("Input coin's number... ");
+        int coinnum = input.nextInt();
+        input.close();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));//¼±¾ð
+        StringBuilder sb = new StringBuilder();
+        int[] num = new int[(int)Math.pow(coinside, coinnum)];
+        int [] ans = new int[coinnum];
+        int j = coinnum-1;
+        for(int i=0;i<num.length;i++)
         {
-        	int num = Integer.parseInt(bf.readLine());
-        	if(num>0)
+        	j = coinnum-1;
+        	num[i] = i;
+        	while(num[i]>0)
         	{
-        		minhp.offer(num);
+        		ans[j] = num[i]%coinside;
+        		num[i] = num[i]/coinside;
+        		j--;
         	}
-        	else if(num<0)
+        	for(int k=0;k<ans.length;k++)
         	{
-        		maxhp.offer(num);
+        		sb.append(ans[k]);
         	}
-        	else
-        	{
-        		if(maxhp.isEmpty()&&minhp.isEmpty())
-        		{
-        			sb.append(0);
-        		}
-        		else if(maxhp.isEmpty())
-        		{
-        			sb.append(minhp.poll());
-        		}
-        		else if(minhp.isEmpty())
-        		{
-        			sb.append(maxhp.poll());
-        		}
-        		else if(Math.abs(minhp.peek()) > Math.abs(maxhp.peek()))
-        		{
-        			sb.append(maxhp.poll());
-        		}
-        		else if(Math.abs(minhp.peek()) < Math.abs(maxhp.peek()))
-        		{
-        			sb.append(minhp.poll());
-        		}
-        		else if(Math.abs(minhp.peek()) == Math.abs(maxhp.peek()))
-        		{
-        			sb.append(maxhp.poll());
-        		}
-        		sb.append("\n");
-        	}
-        	
-        	
-        	
-        	
+        	sb.append("\n");
         }
         
-        
-        		
-
         bw.write(sb.toString());
         bw.newLine();
         bw.flush();
         bw.close();
+
         
     }
     
