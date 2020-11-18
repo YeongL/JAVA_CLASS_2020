@@ -3,11 +3,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-public class EmployInsert extends JFrame{
+public class EmpInsert extends JFrame{
 	
 	
 	
-	String ch_item[] = {"사장","매니저","알바"};
+	String ch_item[] = {"사장","매니저","직원"};
 	JTextField nametxt = new JTextField(8);
 	JTextArea memoarea = new JTextArea(4,12);
 	Choice level = new Choice();
@@ -24,7 +24,7 @@ public class EmployInsert extends JFrame{
 	Font font1 = new Font("맑은 고딕", Font.PLAIN,20);
 	
 	
-	public EmployInsert()
+	public EmpInsert()
 	{
 		
 		setTitle("직원 등록");
@@ -123,26 +123,25 @@ public class EmployInsert extends JFrame{
 	            	String empauth = level.getSelectedItem();
 	            	String emppw = "";
 	            	char[] secret_pw = pwtxt.getPassword();
-	            	//숫자인지 확인
 	            	for(char cha:secret_pw)
 	            	{
-	            		if(cha>'9' || cha<'0')
-	            		{
-	            			JOptionPane.showMessageDialog(null, "비밀번호가 숫자가 아닙니다. 다시 입력하세요","오류!",JOptionPane.ERROR_MESSAGE);
-	            			break;
-	            		}
-	            		else
-	            		{
-	            			Character.toString(cha);
-	            			emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
-	            		}
+	            		Character.toString(cha);
+	            		emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
 	            	}
-	            	//PK 값이 겹치지 않는지 확인
-	                if(emppw.length()==secret_pw.length)
+	            	//PW 값이 겹치지 않는지 확인
+	            	EmpDBSelectPW edbs = new EmpDBSelectPW(emppw);
+	                if(edbs.getUnique())
 	                {
-	                	
+	                	new EmpDBInsert(empname, empauth, emppw);
+	                	dispose();
 	                }
-	            	dispose();
+	                else
+	                {
+	                	JOptionPane.showMessageDialog(null, "이미 존재하는 고유번호입니다. 다시 입력하세요","오류!",JOptionPane.ERROR_MESSAGE);
+	                }
+	            	
+	            	
+	            	
 	            	break;
 	            case "취소":
 	                dispose();
