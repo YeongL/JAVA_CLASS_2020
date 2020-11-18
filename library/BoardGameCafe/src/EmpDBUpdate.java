@@ -4,56 +4,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EmpDBSelectPW {
-	boolean isUnique = true;
-	String auth;
-	int i = 0;
+public class EmpDBUpdate {
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String user = "boardgame";
 	String password = "1234";
 	private Connection con;
 	private Statement stmt;
-	private ResultSet rs;
-	EmpDBSelectPW(String epw){
+	EmpDBUpdate(String ename, String eauth){
 		
 		try {
-			
-			
 			connDB();
 			
-			String sql = "SELECT * FROM emp where epw = "+epw;
-			rs = stmt.executeQuery(sql);
 			
-			while (rs.next()) {
-				auth = rs.getString("eauth");
-				i++;
-			}
-			if(i == 0)
-			{
-				isUnique = true;
-			}
-			else
-			{
-				isUnique = false;
-			}
+			String sql = "UPDATE emp set eauth = '" + eauth+"'" + " where ename = '" + ename+"'";
+			stmt.executeQuery(sql);
+			stmt.executeQuery("commit");
+			
 			
 			
 		} catch (Exception e) {
 			System.out.println(e);
-		} 
+		}
 		
 	}
-	public boolean getUnique()
-	{
-		return this.isUnique;
-	}
-	
-	public String getEauth()
-	{
-		return this.auth;
-	}
-	
 	
 	public void connDB() {
 		try {
@@ -67,6 +41,5 @@ public class EmpDBSelectPW {
 			e.printStackTrace();
 		}
 	}
-	
 	
 }

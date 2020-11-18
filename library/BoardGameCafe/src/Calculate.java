@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
@@ -19,7 +22,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JPasswordField;
 import java.awt.Color;
 import javax.swing.JButton;
-
+import java.sql.*;
 public class Calculate extends JFrame {
 
 	private JPanel contentPane;
@@ -33,7 +36,7 @@ public class Calculate extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Calculate() {
+	public Calculate(int tablenum) {
 		setTitle("\uC815\uC0B0");
 		setBounds(100, 100, 333, 300);
 		contentPane = new JPanel();
@@ -126,6 +129,9 @@ public class Calculate extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				Timestamp TimeNow = Timestamp.valueOf(new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()));
+				String Time = TimeNow.toString();
+				String TimeUsed = MainScreen.tables[tablenum].tableTime;
 				String emppw = "";
             	char[] secret_pw = passwordField.getPassword();
             	for(char cha:secret_pw)
@@ -133,6 +139,9 @@ public class Calculate extends JFrame {
             		Character.toString(cha);
             		emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
             	}
+            	
+            	
+            	
             	
 				dispose();
 			}

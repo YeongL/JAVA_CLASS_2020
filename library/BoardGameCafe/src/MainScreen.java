@@ -237,7 +237,8 @@ public class MainScreen extends JFrame implements ActionListener{
 				//시간 스탑
 				timers[tablenum].isActive = false;
 				timers[tablenum].listnum=(timers[tablenum].shour+":"+timers[tablenum].smin+":"+timers[tablenum].ssec+"\n");
-				new Calculate();
+				tables[tablenum].tableTime = timers[tablenum].listnum;
+				new Calculate(tablenum);
 				//사용 끝났으면 초기화
 				timers[tablenum].resetTimes();
 				break;
