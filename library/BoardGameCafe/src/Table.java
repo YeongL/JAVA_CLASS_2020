@@ -6,6 +6,7 @@ public class Table {
 	int tableNum;
 	String tableTime;
 	int customerNumber;
+	int tableMin;
 	
 	Table()
 	{
@@ -14,6 +15,7 @@ public class Table {
 		this.tableNum = 0;
 		this.tableTime = "";
 		this.customerNumber = 0;
+		this.tableMin=0;
 	}
 	
 }

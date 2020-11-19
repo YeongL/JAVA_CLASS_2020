@@ -7,6 +7,8 @@ import java.sql.Statement;
 public class EmpDBSelectPW {
 	boolean isUnique = true;
 	String auth;
+	int empNum;
+	String ename;
 	int i = 0;
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -27,6 +29,8 @@ public class EmpDBSelectPW {
 			
 			while (rs.next()) {
 				auth = rs.getString("eauth");
+				empNum = rs.getInt("enum");
+				ename = rs.getString("ename");
 				i++;
 			}
 			if(i == 0)
@@ -52,6 +56,14 @@ public class EmpDBSelectPW {
 	public String getEauth()
 	{
 		return this.auth;
+	}
+	public int getEmpNum()
+	{
+		return this.empNum;
+	}
+	public String getEname()
+	{
+		return this.ename;
 	}
 	
 	

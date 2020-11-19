@@ -31,7 +31,7 @@ public class CustomerInsert implements ActionListener{
 		panel.add(cusnumtxt);
 		
 		cusnumtxt.registerKeyboardAction(this, "»Æ¿Œ", KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0),JComponent.WHEN_FOCUSED);
-
+		//cusnumtxt.requestFocus();
 		c.add(panel);
 
 		//

@@ -230,17 +230,19 @@ public class MainScreen extends JFrame implements ActionListener{
 				tables[tablenum].isActive = true;
 				//시간 관련
 				timers[tablenum].isActive = true;
-				
+				//버튼 색깔 변화시킴.
+				tables[tablenum].table.setBackground(new Color(255,153,153));
 				break;
 			case "정산":
 				System.out.println(tables[tablenum].tableNum+"번 테이블 "+tables[tablenum].customerNumber+"명 요금을 정산합니다.");
 				//시간 스탑
 				timers[tablenum].isActive = false;
-				timers[tablenum].listnum=(timers[tablenum].shour+":"+timers[tablenum].smin+":"+timers[tablenum].ssec+"\n");
+				timers[tablenum].listnum=(String.format("%02d", timers[tablenum].shour)+":"+String.format("%02d", timers[tablenum].smin)+":"+String.format("%02d", timers[tablenum].ssec)+"\n");
 				tables[tablenum].tableTime = timers[tablenum].listnum;
-				new Calculate(tablenum);
-				//사용 끝났으면 초기화
-				timers[tablenum].resetTimes();
+				tables[tablenum].tableMin = timers[tablenum].smin+timers[tablenum].shour*60;
+				new CalculateTime(tablenum);
+				//사용 끝났으면 초기화, 시간 이벤트는 버튼 안에 넣어놨다.
+				
 				break;
 			case "인원 수정":
 				System.out.println("인원을 변경합니다.");
@@ -252,9 +254,11 @@ public class MainScreen extends JFrame implements ActionListener{
 			case "취소":
 				System.out.println("delete reached customernum: " + tables[tablenum].customerNumber);
 				tables[tablenum].isActive = false;
+				//안쓰니까 초기화
 				//시간 관련
 				timers[tablenum].resetTimes();
-				//사용 끝났으면 초기화
+				//버튼 관련
+				tables[tablenum].table.setBackground(new JButton().getBackground());
 				break;
 
 			}
@@ -328,7 +332,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				new AuthChange();
 				break;
 			case "시간당 요금":
-
+				new SalesTableTime();
 				break;
 			case "음료 요금":
 				break;
