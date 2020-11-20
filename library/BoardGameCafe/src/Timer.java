@@ -3,8 +3,8 @@
 import javax.swing.*;
 public class Timer {
 	int tableNum;
-	JPanel timerPanel;
 	JLabel Lstopwatch;
+	JLabel CustomerNumber;
 	boolean isActive;
 	int stop;
 	int ssec;//스톱워치에 사용할 변수  초
@@ -15,7 +15,7 @@ public class Timer {
 	
 	Timer()
 	{
-		timerPanel = new JPanel();
+
 		this.tableNum = 0;
 		isActive = false;
 		stop = 0;
@@ -23,6 +23,7 @@ public class Timer {
 		smin=0;//스톱워치에 사용할 변수  분
 		shour=0;//스톱워치에 사용할 변수 시간
 		Lstopwatch = new JLabel();
+		CustomerNumber = new JLabel();
 		listnum = "";
 	}
 	
@@ -36,7 +37,8 @@ public class Timer {
 		ssec = 0;
 		shour = 0;
 		listnum = "";
-		timerPanel.repaint();
+		MainScreen.tables[tableNum].two.repaint();
+		CustomerNumber.setText("");
 	}
 	
 	

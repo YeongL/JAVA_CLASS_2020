@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="choice"/>
+		<item key="selection" value="Popup"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="popup"/>
+			<item value="setComponentPopupMenu"/>
+			<item value="panel"/>
+			<item value="back"/>
+			<item value="tmpbtn"/>
+			<item value="50"/>
 			<item value="choice"/>
 			<item value="default"/>
 			<item value="emp"/>
@@ -17,12 +23,6 @@
 			<item value="format"/>
 			<item value="hour_jl"/>
 			<item value="MainScreen."/>
-			<item value="settime"/>
-			<item value="run"/>
-			<item value="repaint"/>
-			<item value="compare_time"/>
-			<item value="200"/>
-			<item value="675"/>
 		</list>
 		<list key="replacehistory">
 			<item value="txtTimeUsed"/>
@@ -40,8 +40,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="8"/>
-		<item key="DIALOG_Y_ORIGIN" value="228"/>
+		<item key="DIALOG_X_ORIGIN" value="1072"/>
+		<item key="DIALOG_Y_ORIGIN" value="272"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

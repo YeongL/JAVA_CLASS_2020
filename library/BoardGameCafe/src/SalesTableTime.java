@@ -1,20 +1,28 @@
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-public class SalesTableTime extends JFrame implements ItemListener {
+
+
+public class SalesTableTime extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField textField;
 	private JPanel panel_1;
 	private JPanel panel_2;
+	private JPopupMenu popup = new JPopupMenu("»èÁ¦ ¼öÁ¤ ÄÁÆ®·Ñ");
+	JMenuItem m_change = new JMenuItem("¼öÁ¤");
+	JMenuItem m_delete = new JMenuItem("»èÁ¦");
 	Choice cdate = new Choice();
 	Choice cname = new Choice();
 	CalculateTimeVO[] chart;
@@ -71,13 +79,15 @@ public class SalesTableTime extends JFrame implements ItemListener {
 			arr[i] = "";
 		}
 		cnt = 0;
+		String tmpstring = arr[0];
 		for(int i=0;i<list.size();i++)
 		{
 			String[] arr1 = chart[i].getDate().split(" ");
 			
-			if(!arr[cnt].equals(arr1[0]))
+			if(!tmpstring.equals(arr1[0]))
 			{
 				arr[cnt] = arr1[0];
+				tmpstring = arr[cnt];
 				cnt++;
 			}
 			if(cnt == arr.length)
@@ -95,9 +105,9 @@ public class SalesTableTime extends JFrame implements ItemListener {
 		panel_2.setLayout(null);
 		//choice °ü·Ã ÄÚµå
 		cdate.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 20));
-		cdate.setBounds(12, 10, 130, 35);
+		cdate.setBounds(61, 10, 130, 35);
 		panel_2.add(cdate);
-		
+		cdate.add("¸ðµÎ");
 		for(String str1 : arr)
 		{
 			cdate.add(str1);
@@ -113,7 +123,7 @@ public class SalesTableTime extends JFrame implements ItemListener {
 			members[i] = (EmpVO) elist.get(i);
 		}
 		
-		
+		cname.add("¸ðµÎ");
 		for(int i=0;i<elist.size();i++)
 		{
 			cname.add(members[i].getEname());
@@ -121,10 +131,20 @@ public class SalesTableTime extends JFrame implements ItemListener {
 		
 		//
 		cname.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 20));
-		cname.setBounds(193, 10, 130, 35);
+		cname.setBounds(247, 10, 130, 35);
 		cname.addItemListener(this);
 		panel_2.add(cname);
 		panel_2.setPreferredSize(new Dimension(0, -330));
+		
+		JLabel lblNewLabel_1 = new JLabel("\uB0A0\uC9DC:");
+		lblNewLabel_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(12, 10, 57, 33);
+		panel_2.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("\uC774\uB984:");
+		lblNewLabel_1_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
+		lblNewLabel_1_1.setBounds(197, 10, 57, 33);
+		panel_2.add(lblNewLabel_1_1);
 
 		//
 		panel_1 = new JPanel();
@@ -136,7 +156,25 @@ public class SalesTableTime extends JFrame implements ItemListener {
 		scrollPane.setBounds(12, 5, 935, 378);
 		panel_1.add(scrollPane);
 		
-		table.getColumnModel().getColumn(3).setPreferredWidth(87);
+		DefaultTableCellRenderer celAlignCenter = new DefaultTableCellRenderer();
+		celAlignCenter.setHorizontalAlignment(JLabel.CENTER);
+		DefaultTableCellRenderer celAlignRight = new DefaultTableCellRenderer();
+		celAlignRight.setHorizontalAlignment(JLabel.RIGHT);
+		table.getColumnModel().getColumn(0).setPreferredWidth(100);
+		table.getColumnModel().getColumn(0).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(1).setPreferredWidth(30);
+		table.getColumnModel().getColumn(1).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(2).setPreferredWidth(80);
+		table.getColumnModel().getColumn(2).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(3).setPreferredWidth(30);
+		table.getColumnModel().getColumn(3).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(4).setPreferredWidth(30);
+		table.getColumnModel().getColumn(4).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(5).setCellRenderer(celAlignRight);
+		
+		PopupMouseListener listener = new PopupMouseListener();
+		table.addMouseListener(listener);
+		table.setComponentPopupMenu(popup);
 		table.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 		table.setBounds(37, 131, 902, 354);
 		table.setRowHeight(30);
@@ -147,8 +185,10 @@ public class SalesTableTime extends JFrame implements ItemListener {
 			m.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
 			
 		}
-		
-		
+		m_change.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 20));
+		m_delete.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 20));
+		popup.add(m_change);
+		popup.add(m_delete);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 255, 153));
@@ -185,16 +225,38 @@ public class SalesTableTime extends JFrame implements ItemListener {
 		DefaultTableModel model = (DefaultTableModel)table.getModel();
 		model.setNumRows(0);
 		model = new DefaultTableModel(tablename,0);
-		String item = e.getItem().toString();
-		if(e.getSource() == cname)
+		int tmp = 0;
+		if(cname.getSelectedItem().equals("¸ðµÎ") && cdate.getSelectedItem().equals("¸ðµÎ"))
+		{
+			for(int i=0;i<list.size();i++)
+			{
+				
+				model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+				tmp+=chart[i].getSales();
+			}
+		}
+		else if(cname.getSelectedItem().equals("¸ðµÎ"))
 		{
 			for(int i=0;i<list.size();i++)
 			{
 				String[] arr1 = chart[i].getDate().split(" ");
 				
-				if(item.equals(arr1[0]))
+				if(cdate.getSelectedItem().equals(arr1[0]))
 				{
 					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+					tmp+=chart[i].getSales();
+				}
+			}
+		}
+		else if(cdate.getSelectedItem().equals("¸ðµÎ"))
+		{
+			for(int i=0;i<list.size();i++)
+			{
+				
+				if(cname.getSelectedItem().equals(new EmpDBSelectPW(chart[i].getEPW()).getEname()))
+				{
+					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+					tmp+=chart[i].getSales();
 				}
 			}
 		}
@@ -202,21 +264,76 @@ public class SalesTableTime extends JFrame implements ItemListener {
 		{
 			for(int i=0;i<list.size();i++)
 			{
+				String[] arr1 = chart[i].getDate().split(" ");
 				
-				if(item.equals(chart[i].getEPW()))
+				if(cdate.getSelectedItem().equals(arr1[0]) && cname.getSelectedItem().equals(new EmpDBSelectPW(chart[i].getEPW()).getEname()))
 				{
 					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+					tmp+=chart[i].getSales();
 				}
 			}
 		}
 		
 		
-		
+		textField.setText(Integer.toString(tmp));
 		table.setModel(model);
 		table.getColumnModel().getColumn(3).setPreferredWidth(87);
 		table.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 		table.setBounds(37, 131, 902, 354);
 		table.setRowHeight(30);
+		DefaultTableCellRenderer celAlignCenter = new DefaultTableCellRenderer();
+		celAlignCenter.setHorizontalAlignment(JLabel.CENTER);
+		DefaultTableCellRenderer celAlignRight = new DefaultTableCellRenderer();
+		celAlignRight.setHorizontalAlignment(JLabel.RIGHT);
+		table.getColumnModel().getColumn(0).setPreferredWidth(100);
+		table.getColumnModel().getColumn(0).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(1).setPreferredWidth(30);
+		table.getColumnModel().getColumn(1).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(2).setPreferredWidth(80);
+		table.getColumnModel().getColumn(2).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(3).setPreferredWidth(30);
+		table.getColumnModel().getColumn(3).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(4).setPreferredWidth(30);
+		table.getColumnModel().getColumn(4).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(5).setCellRenderer(celAlignRight);
+		
+	}
+
+	class PopupMouseListener implements MouseListener {
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			JTable t = (JTable)arg0.getSource();
+			int column = table.columnAtPoint(arg0.getPoint());
+			int row = table.rowAtPoint(arg0.getPoint());
+			table.changeSelection(row, column, false, false);
+			//Å×ÀÌºí ¼öÁ¤ »èÁ¦ ºÎºÐ Ãß°¡ÇØ¾ßÇÑ´Ù.
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 	
 	

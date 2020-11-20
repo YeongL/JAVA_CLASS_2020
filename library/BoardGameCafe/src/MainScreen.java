@@ -3,14 +3,15 @@ import java.awt.event.*;
 import java.util.*;
 
 import javax.swing.*;
+import javax.swing.border.*;
 
 public class MainScreen extends JFrame implements ActionListener{
 	// font 설정
 	Font font = new Font("맑은 고딕", Font.BOLD, 20);
 	Font font1 = new Font("맑은 고딕", Font.PLAIN, 20);
 
-	
-	
+	//요금제 인트값
+	public static int hourlyCost = 3000;
 	
 	// menubar 관련 아이템 설정
 	private JMenuBar mb = new JMenuBar();
@@ -27,14 +28,13 @@ public class MainScreen extends JFrame implements ActionListener{
 	private JMenuItem m7 = new JMenuItem("요금제 관리");
 
 	// table 관련 아이템 설정
-	private JPanel panel;
 	public static Table[] tables = new Table[15];
 	public static Timer[] timers = new Timer[15];
 	
 	
 	private JPopupMenu popup = new JPopupMenu("초기 팝업");
 	private JPopupMenu popup2 = new JPopupMenu("true일때 팝업");
-	private JButton tmpbtn;
+	private JPanel tmpPanel;
 	
 	// 팝업메뉴 아이템
 	JMenuItem m_start = new JMenuItem("시작");
@@ -56,7 +56,7 @@ public class MainScreen extends JFrame implements ActionListener{
 	
 	MainScreen() {
 		setTitle("정산 시스템");
-
+		
 		createMenu();
 		createTable();
 		setSize(1600, 1000);
@@ -82,6 +82,7 @@ public class MainScreen extends JFrame implements ActionListener{
 	}
 
 	void createMenu() {
+		
 		empMan.setFont(font);
 		money.setFont(font);
 		menuMan.setFont(font);
@@ -120,20 +121,37 @@ public class MainScreen extends JFrame implements ActionListener{
 	}
 
 	void createTable() {
-		panel = new JPanel();
+		//초기화
 		for(int i=0;i<15;i++)
 		{
 			tables[i] = new Table();
 			timers[i] = new Timer();
 		}
+		//정의
+		LineBorder tb = new LineBorder(Color.black,5,true);
+		//tb.setTitleColor(Color.black);
 		
+		// 각 버튼에 대한 이벤트 설정
+		PopupMouseListener listener = new PopupMouseListener();
 		for(int i=0;i<15;i++)
-		{
-			tables[i].table = new JButton(Integer.toString(i));
-			tables[i].table.setFont(font);
+		{	
+			tables[i].table.setBackground(new Color(204, 255, 153));
+			tables[i].tnum.setText(Integer.toString(i));
+			tables[i].tnum.setFont(font);
 			tables[i].tableNum = i;
+			
 			timers[i].tableNum = i;
 			timers[i].Lstopwatch.setFont(font);
+			timers[i].CustomerNumber.setFont(font);
+			tables[i].table.addMouseListener(listener);
+			tables[i].table.add(tables[i].one);
+			tables[i].table.add(tables[i].two);
+			tables[i].table.add(tables[i].three);
+			tables[i].one.add(tables[i].tnum);
+			tables[i].two.add(timers[i].Lstopwatch);
+			tables[i].three.add(timers[i].CustomerNumber);
+			tables[i].table.setBorder(tb);
+			this.add(tables[i].table);
 		}
 		
 		popup.add(m_start);
@@ -142,16 +160,6 @@ public class MainScreen extends JFrame implements ActionListener{
 		popup2.add(m_order);
 		popup2.add(m_delete);
 
-		// 각 버튼에 대한 이벤트 설정
-		PopupMouseListener listener = new PopupMouseListener();
-		
-		for(int i=0;i<15;i++)
-		{
-			tables[i].table.addMouseListener(listener);
-			timers[i].timerPanel.add(timers[i].Lstopwatch);
-		}
-//		
-//       
 		
 
 		PopupActionListener listener1 = new PopupActionListener();
@@ -179,28 +187,8 @@ public class MainScreen extends JFrame implements ActionListener{
 		tables[12].table.setBounds(700, 635, 200, 200);
 		tables[13].table.setBounds(1000, 635, 200, 200);
 		tables[14].table.setBounds(1300, 635, 200, 200);
-		timers[0].timerPanel.setBounds(100, 225, 200, 80);
-		timers[1].timerPanel.setBounds(400, 225, 200, 80);
-		timers[2].timerPanel.setBounds(700, 225, 200, 80);
-		timers[3].timerPanel.setBounds(1000, 225, 200, 80);
-		timers[4].timerPanel.setBounds(1300, 225, 200, 80);
-		timers[5].timerPanel.setBounds(100, 530, 200, 80);
-		timers[6].timerPanel.setBounds(400, 530, 200, 80);
-		timers[7].timerPanel.setBounds(700, 530, 200, 80);
-		timers[8].timerPanel.setBounds(1000, 530, 200, 80);
-		timers[9].timerPanel.setBounds(1300, 530, 200, 80);
-		timers[10].timerPanel.setBounds(100, 835, 200, 80);
-		timers[11].timerPanel.setBounds(400, 835, 200, 80);
-		timers[12].timerPanel.setBounds(700, 835, 200, 80);
-		timers[13].timerPanel.setBounds(1000, 835, 200, 80);
-		timers[14].timerPanel.setBounds(1300, 835, 200, 80);
-		for(int i=0;i<15;i++)
-		{
-			
-			this.add(tables[i].table);
-			this.add(timers[i].timerPanel);
-			
-		}
+
+		
 		
 
 	}
@@ -217,7 +205,7 @@ public class MainScreen extends JFrame implements ActionListener{
 			int tablenum = 0;
 			for(int i=0;i<15;i++)
 			{
-				if (tmpbtn == tables[i].table) {
+				if (tmpPanel == tables[i].table) {
 					tablenum = i;
 				}
 			}
@@ -230,8 +218,10 @@ public class MainScreen extends JFrame implements ActionListener{
 				tables[tablenum].isActive = true;
 				//시간 관련
 				timers[tablenum].isActive = true;
+				
 				//버튼 색깔 변화시킴.
 				tables[tablenum].table.setBackground(new Color(255,153,153));
+				
 				break;
 			case "정산":
 				System.out.println(tables[tablenum].tableNum+"번 테이블 "+tables[tablenum].customerNumber+"명 요금을 정산합니다.");
@@ -258,7 +248,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				//시간 관련
 				timers[tablenum].resetTimes();
 				//버튼 관련
-				tables[tablenum].table.setBackground(new JButton().getBackground());
+				tables[tablenum].table.setBackground(new Color(204, 255, 153));
 				break;
 
 			}
@@ -285,11 +275,11 @@ public class MainScreen extends JFrame implements ActionListener{
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			tmpbtn = new JButton();
-			tmpbtn = (JButton) e.getSource();
+			tmpPanel = new JPanel();
+			tmpPanel = (JPanel) e.getSource();
 			for(int i=0;i<15;i++)
 			{
-				if (tmpbtn == tables[i].table) {
+				if (tmpPanel == tables[i].table) {
 					if (!tables[i].isActive) {
 						tables[i].table.setComponentPopupMenu(popup);
 						
@@ -326,7 +316,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				new EmpInsert();
 				break;
 			case "직원 해제":
-
+				new EmpDelete();
 				break;
 			case "직원 권한변경":
 				new AuthChange();

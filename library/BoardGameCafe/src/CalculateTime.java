@@ -81,7 +81,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 		txtSales = new JTextField();
 		txtSales.setBackground(new Color(255, 255, 255));
 		txtSales.setEditable(false);
-		txtSales.setText(Integer.toString(MainScreen.tables[tablenum].tableMin*50*MainScreen.tables[tablenum].customerNumber));
+		txtSales.setText(Integer.toString(MainScreen.tables[tablenum].tableMin*(MainScreen.hourlyCost/60)*MainScreen.tables[tablenum].customerNumber));
 		txtSales.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		txtSales.setColumns(8);
 		panel_2.add(txtSales);
@@ -157,7 +157,8 @@ public class CalculateTime extends JFrame implements ActionListener {
         		new CalculateTimeDBInsert(tablenum, Integer.parseInt(txtCusnum.getText()), strDate, TimeUsed, emppw, Integer.parseInt(txtSales.getText()));
         		MainScreen.timers[tablenum].resetTimes();
         		//버튼 초기화
-				MainScreen.tables[tablenum].table.setBackground(new JButton().getBackground());
+        		MainScreen.tables[tablenum].isActive = false;
+				MainScreen.tables[tablenum].table.setBackground(new Color(204, 255, 153));
         		dispose();
         	}
 			
@@ -165,6 +166,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 			break;
 		case "취소":
 			MainScreen.timers[tablenum].isActive = true;
+			
 			dispose();
 			break;
 		}

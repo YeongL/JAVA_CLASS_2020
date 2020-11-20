@@ -85,12 +85,15 @@ public class CustomerInsert implements ActionListener{
 			}
 			if (cnum != 0) {
 				MainScreen.setCnum(tablenum, cnum);
+				MainScreen.timers[tablenum].CustomerNumber.setText(Integer.toString(cnum)+"∏Ì");;
 				frame.dispose();
 			}
 
 			break;
 		case "√Îº“":
 			MainScreen.timers[tablenum].resetTimes();
+			MainScreen.tables[tablenum].isActive = false;
+			MainScreen.tables[tablenum].table.setBackground(new Color(204, 255, 153));
 			frame.dispose();
 			break;
 		}

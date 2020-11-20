@@ -3,7 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-public class EmpInsert extends JFrame{
+public class EmpInsert extends JFrame implements ActionListener{
 	
 	
 	
@@ -85,6 +85,8 @@ public class EmpInsert extends JFrame{
 		c.add(panel);
 		
 		
+		nametxt.registerKeyboardAction(this, "등록", KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0),JComponent.WHEN_FOCUSED);
+		pwtxt.registerKeyboardAction(this, "등록", KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0),JComponent.WHEN_FOCUSED);
 		
 		
 		
@@ -94,8 +96,8 @@ public class EmpInsert extends JFrame{
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 		btn1.setPreferredSize(new Dimension(90,50));
 		btn2.setPreferredSize(new Dimension(90,50));
-		btn1.addActionListener(new ButtonActionListener());
-		btn2.addActionListener(new ButtonActionListener());
+		btn1.addActionListener(this);
+		btn2.addActionListener(this);
 		
 		panel.add(btn1);
 		panel.add(btn2);
@@ -114,40 +116,46 @@ public class EmpInsert extends JFrame{
 		
 	}
 	
-	class ButtonActionListener implements ActionListener {
-		 public void actionPerformed(ActionEvent e) {
-	        	String cmd = e.getActionCommand();
-	        	switch (cmd) { // 메뉴 아이템의 종류 구분
-	            case "등록":
-	            	String empname = nametxt.getText();
-	            	String empauth = level.getSelectedItem();
-	            	String emppw = "";
-	            	char[] secret_pw = pwtxt.getPassword();
-	            	for(char cha:secret_pw)
-	            	{
-	            		Character.toString(cha);
-	            		emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
-	            	}
-	            	//PW 값이 겹치지 않는지 확인
-	            	EmpDBSelectPW edbs = new EmpDBSelectPW(emppw);
-	                if(edbs.getUnique())
-	                {
-	                	new EmpDBInsert(empname, empauth, emppw);
-	                	dispose();
-	                }
-	                else
-	                {
-	                	JOptionPane.showMessageDialog(null, "이미 존재하는 고유번호입니다. 다시 입력하세요","오류!",JOptionPane.ERROR_MESSAGE);
-	                }
-	            	
-	            	
-	            	
-	            	break;
-	            case "취소":
-	                dispose();
-	            	break;
-	        	}
-		 }
+	
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String cmd = e.getActionCommand();
+    	switch (cmd) { // 메뉴 아이템의 종류 구분
+        case "등록":
+        	String empname = nametxt.getText();
+        	String empauth = level.getSelectedItem();
+        	String emppw = "";
+        	char[] secret_pw = pwtxt.getPassword();
+        	for(char cha:secret_pw)
+        	{
+        		Character.toString(cha);
+        		emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
+        	}
+        	//PW 값이 겹치지 않는지 확인
+        	EmpDBSelectPW edbs = new EmpDBSelectPW(emppw);
+            if(edbs.getUnique() && !emppw.equals("") && !empname.equals(""))
+            {
+            	new EmpDBInsert(empname, empauth, emppw);
+            	dispose();
+            }
+            else if(emppw.equals("") || empname.equals(""))
+            {
+            	JOptionPane.showMessageDialog(null, "이름 또는 비밀번호를 입력해주세요. 다시 입력하세요","오류!",JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {
+            	JOptionPane.showMessageDialog(null, "이미 존재하는 고유번호입니다. 다시 입력하세요","오류!",JOptionPane.ERROR_MESSAGE);
+            }
+        	
+        	
+        	
+        	break;
+        case "취소":
+            dispose();
+        	break;
+    	}
 	}
 	
 	
