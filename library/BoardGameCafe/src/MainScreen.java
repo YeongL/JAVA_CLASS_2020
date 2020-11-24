@@ -328,8 +328,10 @@ public class MainScreen extends JFrame implements ActionListener{
 				break;
 
 			case "澜丰 包府":
+				new MenuManagement();
 				break;
 			case "夸陛力 包府":
+				new HourlyCostChange();
 				break;
 
 			}

@@ -1,71 +1,37 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EmpDBSelectPW {
-	boolean isUnique = true;
-	String auth = "";
-	int empNum;
-	String ename = "";
-	int i = 0;
+public class CalculateTimeDBUpdate {
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String user = "boardgame";
 	String password = "1234";
 	private Connection con;
 	private Statement stmt;
-	private ResultSet rs;
-	EmpDBSelectPW(String epw){
-		
+	
+	CalculateTimeDBUpdate(String date, String table,String time, String cusnum, String money){
+		java.sql.Timestamp d = java.sql.Timestamp.valueOf(date+".0");
 		try {
-			
-			
 			connDB();
 			
-			String sql = "SELECT * FROM emp where epw = "+epw;
-			rs = stmt.executeQuery(sql);
 			
-			while (rs.next()) {
-				auth = rs.getString("eauth");
-				empNum = rs.getInt("enum");
-				ename = rs.getString("ename");
-				i++;
-			}
-			if(i == 0)
-			{
-				isUnique = true;
-			}
-			else
-			{
-				isUnique = false;
-			}
+			String sql = "UPDATE CalculateTime set tablenum = " + table+
+					", timeused = "+time+
+					", cusnum = "+cusnum+
+					", sales = "+money+
+					" where datetime = '" + d+"'";
+			stmt.executeQuery(sql);
+			stmt.executeQuery("commit");
+			
 			
 			
 		} catch (Exception e) {
 			System.out.println(e);
-		} 
+		}
 		
 	}
-	public boolean getUnique()
-	{
-		return this.isUnique;
-	}
-	
-	public String getEauth()
-	{
-		return this.auth;
-	}
-	public int getEmpNum()
-	{
-		return this.empNum;
-	}
-	public String getEname()
-	{
-		return this.ename;
-	}
-	
 	
 	public void connDB() {
 		try {
@@ -79,6 +45,4 @@ public class EmpDBSelectPW {
 			e.printStackTrace();
 		}
 	}
-	
-	
 }

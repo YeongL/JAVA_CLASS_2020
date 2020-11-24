@@ -58,6 +58,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 		panel_1.add(lblNewLabel_1);
 		
 		txtCusnum = new JTextField();
+		txtCusnum.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtCusnum.setBackground(new Color(255, 255, 255));
 		txtCusnum.setEditable(false);
 		txtCusnum.setText(Integer.toString(MainScreen.tables[tablenum].customerNumber));
@@ -79,6 +80,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 		panel_2.add(lblNewLabel_2);
 		
 		txtSales = new JTextField();
+		txtSales.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtSales.setBackground(new Color(255, 255, 255));
 		txtSales.setEditable(false);
 		txtSales.setText(Integer.toString(MainScreen.tables[tablenum].tableMin*(MainScreen.hourlyCost/60)*MainScreen.tables[tablenum].customerNumber));

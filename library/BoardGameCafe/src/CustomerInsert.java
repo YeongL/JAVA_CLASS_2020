@@ -29,7 +29,7 @@ public class CustomerInsert implements ActionListener{
 		//
 		panel.add(numbers);
 		panel.add(cusnumtxt);
-		
+		cusnumtxt.setHorizontalAlignment(SwingConstants.RIGHT);
 		cusnumtxt.registerKeyboardAction(this, "»Æ¿Œ", KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0),JComponent.WHEN_FOCUSED);
 		//cusnumtxt.requestFocus();
 		c.add(panel);

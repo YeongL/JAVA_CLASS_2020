@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
@@ -13,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 
-public class SalesTableTime extends JFrame implements ItemListener{
+public class SalesTableTime extends JFrame implements ItemListener, ActionListener{
 
 	private JPanel contentPane;
 	private JTable table;
@@ -29,6 +31,7 @@ public class SalesTableTime extends JFrame implements ItemListener{
 	String[] arr;
 	String[] tablename = {"날짜/시간", "Table","정산자","시간(분)","인원수","요금"};
 	ArrayList<CalculateTimeVO> list;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -41,7 +44,7 @@ public class SalesTableTime extends JFrame implements ItemListener{
 		
 		setBounds(100, 100, 1004, 606);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		//contentPane.setLayout(null);
@@ -148,7 +151,7 @@ public class SalesTableTime extends JFrame implements ItemListener{
 
 		//
 		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(204, 255, 255));
+		panel_1.setBackground(new Color(204, 255, 204));
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -187,11 +190,15 @@ public class SalesTableTime extends JFrame implements ItemListener{
 		}
 		m_change.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		m_delete.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		
+		m_change.addActionListener(this);
+		m_delete.addActionListener(this);
+		
 		popup.add(m_change);
 		popup.add(m_delete);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(204, 255, 153));
+		panel.setBackground(new Color(153, 255, 204));
 		panel.setBounds(12, 10, 927, 489);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -326,6 +333,8 @@ public class SalesTableTime extends JFrame implements ItemListener{
 			int row = table.rowAtPoint(arg0.getPoint());
 			table.changeSelection(row, column, false, false);
 			//테이블 수정 삭제 부분 추가해야한다.
+			//데이터베이스에서 선택된 테이블 열의 시간 값을 기준으로 값을 찾아서 삭제해야한다.
+			
 			
 		}
 
@@ -333,6 +342,32 @@ public class SalesTableTime extends JFrame implements ItemListener{
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
 			
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String cmd = e.getActionCommand();
+		DefaultTableModel tm = (DefaultTableModel) table.getModel();
+		String date = table.getValueAt(table.getSelectedRow(), 0).toString();
+		switch (cmd) {
+		case "수정":
+			
+			int tablenum = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 1).toString());
+			String emp = table.getValueAt(table.getSelectedRow(), 2).toString();
+			int timeUsed = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 3).toString());
+			int cusnum = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 4).toString());
+			new CalculateTimeUpdate(tm, table.getSelectedRow(), date, tablenum, emp, timeUsed, cusnum);
+			break;
+		case "삭제":
+			
+			System.out.println(date);
+			
+			
+			new CheckEmpAuth(date, tm, table.getSelectedRow());
+			//new CalculateTimeDBDelete(date);
+			break;
 		}
 	}
 	
