@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
@@ -12,11 +14,15 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+
+
 import java.awt.FlowLayout;
 
 public class MenuManagement extends JFrame implements ActionListener {
@@ -26,6 +32,8 @@ public class MenuManagement extends JFrame implements ActionListener {
 	String[] tablename = {"메뉴 이름", "메뉴 요금"};
 	MenuVO[] chart;
 	ArrayList<MenuVO> list;
+	private JPopupMenu popup = new JPopupMenu("삭제 컨트롤");
+	JMenuItem m_delete = new JMenuItem("삭제");
 	/**
 	 * Launch the application.
 	 */
@@ -78,8 +86,14 @@ public class MenuManagement extends JFrame implements ActionListener {
 		celAlignRight.setHorizontalAlignment(JLabel.RIGHT);
 		table.getColumnModel().getColumn(0).setCellRenderer(celAlignCenter);
 		table.getColumnModel().getColumn(1).setCellRenderer(celAlignRight);
-		
-		
+		//
+		PopupMouseListener listener = new PopupMouseListener();
+		table.addMouseListener(listener);
+		table.setComponentPopupMenu(popup);
+		popup.add(m_delete);
+		m_delete.addActionListener(this);
+		m_delete.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		//
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2);
 		panel_2.setPreferredSize(new Dimension(0, -330));
@@ -97,17 +111,65 @@ public class MenuManagement extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
+	class PopupMouseListener implements MouseListener {
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			JTable t = (JTable)arg0.getSource();
+			int column = table.columnAtPoint(arg0.getPoint());
+			int row = table.rowAtPoint(arg0.getPoint());
+			table.changeSelection(row, column, false, false);
+			//테이블 수정 삭제 부분 추가해야한다.
+			//데이터베이스에서 선택된 테이블 열의 시간 값을 기준으로 값을 찾아서 삭제해야한다.
+			
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		DefaultTableModel tm = (DefaultTableModel) table.getModel();
 		String cmd = e.getActionCommand();
+		String menu = table.getValueAt(table.getSelectedRow(), 0).toString();
 		switch(cmd) {
 		case "추가":
 			new MenuInsert();
 			break;
 		case "닫기":
 			dispose();
+			break;
+		case "삭제":
+			CheckEmpAuth cea = new CheckEmpAuth(tm, table.getSelectedRow());
+			if(cea.IsChecked())
+			{
+				new MenuDBDelete(menu);
+			}
 			break;
 		}
 	}

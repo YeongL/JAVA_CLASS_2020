@@ -509,7 +509,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_Ll-duy4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.editorss" selectedElement="_Ll-dvC4zEeuLpc0JaY8Pag">
-      <children xsi:type="basic:PartStack" xmi:id="_Ll-dvC4zEeuLpc0JaY8Pag" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_Ll-dyi4zEeuLpc0JaY8Pag">
+      <children xsi:type="basic:PartStack" xmi:id="_Ll-dvC4zEeuLpc0JaY8Pag" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_Ll-dwi4zEeuLpc0JaY8Pag">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
@@ -524,23 +524,24 @@
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_Ll-dwi4zEeuLpc0JaY8Pag" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="HourlyCostChange.java" iconURI="platform:/plugin/org.eclipse.wb.core.ui/icons/gui_editor.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;HourlyCostChange.java&quot; partName=&quot;HourlyCostChange.java&quot; title=&quot;HourlyCostChange.java&quot; tooltip=&quot;BoardGameCafe/src/HourlyCostChange.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/HourlyCostChange.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3201&quot; selectionTopPixel=&quot;1020&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;HourlyCostChange.java&quot; partName=&quot;HourlyCostChange.java&quot; title=&quot;HourlyCostChange.java&quot; tooltip=&quot;BoardGameCafe/src/HourlyCostChange.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/HourlyCostChange.java&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.wb.core.guiEditor</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_Ll-dxi4zEeuLpc0JaY8Pag" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CustomerInsert.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CustomerInsert.java&quot; partName=&quot;CustomerInsert.java&quot; title=&quot;CustomerInsert.java&quot; tooltip=&quot;BoardGameCafe/src/CustomerInsert.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/CustomerInsert.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1432&quot; selectionTopPixel=&quot;875&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CustomerInsert.java&quot; partName=&quot;CustomerInsert.java&quot; title=&quot;CustomerInsert.java&quot; tooltip=&quot;BoardGameCafe/src/CustomerInsert.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/CustomerInsert.java&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_Ll-dyi4zEeuLpc0JaY8Pag" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="MenuManagement.java" iconURI="platform:/plugin/org.eclipse.wb.core.ui/icons/gui_editor.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;MenuManagement.java&quot; partName=&quot;MenuManagement.java&quot; title=&quot;MenuManagement.java&quot; tooltip=&quot;BoardGameCafe/src/MenuManagement.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/MenuManagement.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3051&quot; selectionTopPixel=&quot;990&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;MenuManagement.java&quot; partName=&quot;MenuManagement.java&quot; title=&quot;MenuManagement.java&quot; tooltip=&quot;BoardGameCafe/src/MenuManagement.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/MenuManagement.java&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.wb.core.guiEditor</tags>
-          <tags>active</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_Ll-dzi4zEeuLpc0JaY8Pag" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="SalesTableTime.java" iconURI="platform:/plugin/org.eclipse.wb.core.ui/icons/gui_editor.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wb.core.guiEditor&quot; name=&quot;SalesTableTime.java&quot; partName=&quot;SalesTableTime.java&quot; title=&quot;SalesTableTime.java&quot; tooltip=&quot;BoardGameCafe/src/SalesTableTime.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/BoardGameCafe/src/SalesTableTime.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;9922&quot; selectionTopPixel=&quot;4815&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -905,7 +906,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ll-fIS4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Ll-fKS4zEeuLpc0JaY8Pag" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_LmCJDC4zEeuLpc0JaY8Pag"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_W4W-YC5dEeuVm6NWuPpuNw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_LmCJDC4zEeuLpc0JaY8Pag"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ll_EVS4zEeuLpc0JaY8Pag" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -945,7 +946,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ll_Ety4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Ll_EvS4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_LmCIry4zEeuLpc0JaY8Pag"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_W4b24S5dEeuVm6NWuPpuNw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_LmCIry4zEeuLpc0JaY8Pag"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ll_EwS4zEeuLpc0JaY8Pag" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" visible="false">
         <tags>Draggable</tags>
@@ -1112,7 +1113,6 @@
     <bindings xmi:id="_Ll_FOy4zEeuLpc0JaY8Pag" keySequence="CTRL+SHIFT+NUMPAD_DIVIDE" command="_LmCIEC4zEeuLpc0JaY8Pag"/>
     <bindings xmi:id="_Ll_FPC4zEeuLpc0JaY8Pag" keySequence="ALT+/" command="_LmCJYS4zEeuLpc0JaY8Pag"/>
     <bindings xmi:id="_Ll_FPS4zEeuLpc0JaY8Pag" keySequence="SHIFT+CR" command="_LmCJWi4zEeuLpc0JaY8Pag"/>
-    <bindings xmi:id="_Ll_FPi4zEeuLpc0JaY8Pag" keySequence="F12" command="_LmCKdi4zEeuLpc0JaY8Pag"/>
   </bindingTables>
   <bindingTables xmi:id="_Ll_FPy4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.contexts.window" bindingContext="_Ll_sJy4zEeuLpc0JaY8Pag">
     <bindings xmi:id="_Ll_FQC4zEeuLpc0JaY8Pag" keySequence="ALT+CTRL+SHIFT+A" command="_LmCIgC4zEeuLpc0JaY8Pag"/>
@@ -1628,10 +1628,7 @@
   <bindingTables xmi:id="_Ll_sHy4zEeuLpc0JaY8Pag" bindingContext="_Ll_snS4zEeuLpc0JaY8Pag"/>
   <bindingTables xmi:id="_Ll_sIC4zEeuLpc0JaY8Pag" bindingContext="_Ll_sni4zEeuLpc0JaY8Pag"/>
   <bindingTables xmi:id="_Ll_sIS4zEeuLpc0JaY8Pag" bindingContext="_Ll_sny4zEeuLpc0JaY8Pag"/>
-  <bindingTables xmi:id="_Ll_sIi4zEeuLpc0JaY8Pag" elementId="org.eclipse.wb.core.java.editorScope" bindingContext="_Ll_sUC4zEeuLpc0JaY8Pag">
-    <bindings xmi:id="_Ll_sIy4zEeuLpc0JaY8Pag" keySequence="ALT+CTRL+A" command="_LmCKdS4zEeuLpc0JaY8Pag"/>
-    <bindings xmi:id="_Ll_sJC4zEeuLpc0JaY8Pag" keySequence="CTRL+SHIFT+A" command="_LmCKdS4zEeuLpc0JaY8Pag"/>
-  </bindingTables>
+  <bindingTables xmi:id="_Ll_sIi4zEeuLpc0JaY8Pag" elementId="org.eclipse.wb.core.java.editorScope" bindingContext="_Ll_sUC4zEeuLpc0JaY8Pag"/>
   <bindingTables xmi:id="_Ll_sJS4zEeuLpc0JaY8Pag" bindingContext="_Ll_soC4zEeuLpc0JaY8Pag"/>
   <rootContext xmi:id="_Ll_sJi4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_Ll_sJy4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
@@ -2319,30 +2316,18 @@
     <tags>View</tags>
     <tags>categoryTag:XML</tags>
   </descriptors>
-  <descriptors xmi:id="_Ll_s_i4zEeuLpc0JaY8Pag" elementId="org.eclipse.wb.core.StructureView" label="Structure" iconURI="platform:/plugin/org.eclipse.wb.core/icons/structure/properties_view.gif" tooltip="" category="WindowBuilder" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.wb.internal.core.views.StructureView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.wb.core"/>
-    <tags>View</tags>
-    <tags>categoryTag:WindowBuilder</tags>
-  </descriptors>
-  <descriptors xmi:id="_Ll_s_y4zEeuLpc0JaY8Pag" elementId="org.eclipse.wb.core.PaletteView" label="Palette" iconURI="platform:/plugin/org.eclipse.wb.core/icons/structure/palette.png" tooltip="" category="WindowBuilder" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.wb.internal.core.views.PaletteView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.wb.core"/>
-    <tags>View</tags>
-    <tags>categoryTag:WindowBuilder</tags>
-  </descriptors>
-  <trimContributions xmi:id="_LmBhlS4zEeuLpc0JaY8Pag" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
-    <children xsi:type="menu:ToolControl" xmi:id="_LmBhli4zEeuLpc0JaY8Pag" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+  <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
+    <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
       <tags>glue</tags>
       <tags>move_after:PerspectiveSpacer</tags>
       <tags>SHOW_RESTORE_MENU</tags>
     </children>
-    <children xsi:type="menu:ToolControl" xmi:id="_LmBhly4zEeuLpc0JaY8Pag" elementId="SearchField" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField">
+    <children xsi:type="menu:ToolControl" xmi:id="_8tJPcF9tEeO-yojH_y4TJA" elementId="SearchField" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField">
       <tags>move_after:Spacer Glue</tags>
       <tags>HIDEABLE</tags>
       <tags>SHOW_RESTORE_MENU</tags>
     </children>
-    <children xsi:type="menu:ToolControl" xmi:id="_LmBhmC4zEeuLpc0JaY8Pag" elementId="Search-PS Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+    <children xsi:type="menu:ToolControl" xmi:id="_9LgmcF9tEeO-yojH_y4TJA" elementId="Search-PS Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
       <tags>glue</tags>
       <tags>move_after:SearchField</tags>
       <tags>SHOW_RESTORE_MENU</tags>

@@ -365,7 +365,11 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 			System.out.println(date);
 			
 			
-			new CheckEmpAuth(date, tm, table.getSelectedRow());
+			CheckEmpAuth cea = new CheckEmpAuth(tm, table.getSelectedRow());
+			if(cea.IsChecked())
+			{
+				new CalculateTimeDBDelete(date);
+			}
 			//new CalculateTimeDBDelete(date);
 			break;
 		}

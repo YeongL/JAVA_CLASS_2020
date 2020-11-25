@@ -24,11 +24,18 @@ public class CheckEmpAuth extends JFrame implements ActionListener{
 	String date;
 	DefaultTableModel tm;
 	int row;
-
+	
+	boolean empchecked = false;
+	
 	/**
 	 * Create the frame.
 	 */
-	public CheckEmpAuth(String date, DefaultTableModel tm, int row) {
+	public boolean IsChecked()
+	{
+		return this.empchecked;
+	}
+	
+	public CheckEmpAuth(DefaultTableModel tm, int row) {
 		setTitle("\uC815\uC0B0 \uAE30\uB85D \uC0AD\uC81C");
 		this.date = date;
 		this.tm = tm;
@@ -90,8 +97,9 @@ public class CheckEmpAuth extends JFrame implements ActionListener{
         	EmpDBSelectPW res = new EmpDBSelectPW(emppw);
         	if(res.getEauth().equals("사장"))
         	{
-        		new CalculateTimeDBDelete(date);
-        		JOptionPane.showMessageDialog(null, "정산 정보 삭제를 성공했습니다.","삭제완료!",JOptionPane.ERROR_MESSAGE);
+        		
+        		empchecked = true;
+        		JOptionPane.showMessageDialog(null, "삭제를 성공했습니다.","삭제완료!",JOptionPane.ERROR_MESSAGE);
         		tm.removeRow(row);
         		dispose();
         	}

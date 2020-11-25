@@ -10,8 +10,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MenuInsert extends JFrame {
+public class MenuInsert extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
@@ -71,14 +73,38 @@ public class MenuInsert extends JFrame {
 		JPanel panel_3 = new JPanel();
 		contentPane.add(panel_3);
 		
-		JButton btnNewButton = new JButton("\uB4F1\uB85D");
+		JButton btnNewButton = new JButton("µÓ∑œ");
 		btnNewButton.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 20));
 		panel_3.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("\uCDE8\uC18C");
+		JButton btnNewButton_1 = new JButton("√Îº“");
 		btnNewButton_1.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 20));
 		panel_3.add(btnNewButton_1);
+		
+		btnNewButton.addActionListener(this);
+		btnNewButton_1.addActionListener(this);
+		
 		setVisible(true);
+		
+		
+		
+	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String cmd = e.getActionCommand();
+		switch(cmd)
+		{
+		case "µÓ∑œ":
+			
+			break;
+		case "√Îº“":
+			dispose();
+			break;
+		}
 	}
 
 }

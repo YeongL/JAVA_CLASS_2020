@@ -239,7 +239,8 @@ public class MainScreen extends JFrame implements ActionListener{
 				new CustomerInsert(tablenum);
 				break;
 			case "음료 주문":
-				System.out.println("order");
+				System.out.println("음료를 주문합니다.");
+				
 				break;
 			case "취소":
 				System.out.println("delete reached customernum: " + tables[tablenum].customerNumber);
@@ -325,6 +326,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				new SalesTableTime();
 				break;
 			case "음료 요금":
+				
 				break;
 
 			case "음료 관리":
