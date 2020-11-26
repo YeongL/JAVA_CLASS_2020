@@ -12,9 +12,11 @@ public class CustomerInsert implements ActionListener{
 	int tablenum = 0;
 	Font font = new Font("¸¼Àº °íµñ", Font.BOLD, 20);
 	Font font1 = new Font("¸¼Àº °íµñ", Font.PLAIN, 20);
+	String state;
 	
-	public CustomerInsert(int tablenum) {
+	public CustomerInsert(int tablenum,String state) {
 		this.tablenum = tablenum;
+		this.state = state;
 		frame.setTitle("ÀÎ¿ø¼ö ÀÔ·Â");
 		numbers.setFont(font);
 		cusnumtxt.setFont(font1);
@@ -91,9 +93,13 @@ public class CustomerInsert implements ActionListener{
 
 			break;
 		case "Ãë¼Ò":
-			MainScreen.timers[tablenum].resetTimes();
-			MainScreen.tables[tablenum].isActive = false;
-			MainScreen.tables[tablenum].table.setBackground(new Color(204, 255, 153));
+			if(!state.equals("change"))
+			{
+				MainScreen.timers[tablenum].resetTimes();
+				MainScreen.tables[tablenum].isActive = false;
+				MainScreen.tables[tablenum].table.setBackground(new Color(204, 255, 153));
+			}
+			
 			frame.dispose();
 			break;
 		}

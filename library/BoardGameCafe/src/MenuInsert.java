@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import javax.swing.table.DefaultTableModel;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -6,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -19,14 +21,15 @@ public class MenuInsert extends JFrame implements ActionListener {
 	private JPasswordField passwordField;
 	private JTextField textField;
 	private JTextField textField_1;
-
+	DefaultTableModel tm;
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public MenuInsert() {
+	public MenuInsert(DefaultTableModel tm) {
 		setTitle("\uBA54\uB274 \uCD94\uAC00 \uB4F1\uB85D");
+		this.tm = tm;
 		setBounds(100, 100, 334, 253);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -99,8 +102,41 @@ public class MenuInsert extends JFrame implements ActionListener {
 		switch(cmd)
 		{
 		case "등록":
-			
-			break;
+			String emppw = "";
+        	char[] secret_pw = passwordField.getPassword();
+        	for(char cha:secret_pw)
+        	{
+        		Character.toString(cha);
+        		emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
+        	}
+        	EmpDBSelectPW res = new EmpDBSelectPW(emppw);
+        	boolean isnum = true;
+        	for(int i=0;i<textField.getText().length();i++)
+        	{
+        		if(textField.getText().charAt(i)<'0' || textField.getText().charAt(i)>'9')
+        		{
+        			isnum = false;
+        			break;
+        		}
+        	}
+        	if(!isnum)
+        	{
+        		JOptionPane.showMessageDialog(null, "숫자를 입력해주세요.","오류!",JOptionPane.ERROR_MESSAGE);
+        		break;
+        	}
+        	if(res.getEauth().equals("사장"))
+        	{
+        		
+        		new MenuDBInsert(textField_1.getText(),Integer.parseInt(textField.getText()));
+        		JOptionPane.showMessageDialog(null, "메뉴 추가를 성공했습니다.","추가완료!",JOptionPane.ERROR_MESSAGE);
+        		tm.addRow(new Object[] {textField_1.getText().toString(),textField.getText().toString()});
+        		dispose();
+        	}
+        	else
+        	{
+        		JOptionPane.showMessageDialog(null, "권한이 부족합니다. 다시 입력해주세요.","오류!",JOptionPane.ERROR_MESSAGE);
+        	}
+        	break;
 		case "취소":
 			dispose();
 			break;

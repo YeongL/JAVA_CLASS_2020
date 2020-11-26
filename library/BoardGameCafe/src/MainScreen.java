@@ -214,7 +214,7 @@ public class MainScreen extends JFrame implements ActionListener{
 			switch (cmd) { // 메뉴 아이템의 종류 구분
 			case "시작":
 				System.out.println("start " + tables[tablenum].tableNum);
-				new CustomerInsert(tablenum);
+				new CustomerInsert(tablenum,"");
 				tables[tablenum].isActive = true;
 				//시간 관련
 				timers[tablenum].isActive = true;
@@ -236,11 +236,11 @@ public class MainScreen extends JFrame implements ActionListener{
 				break;
 			case "인원 수정":
 				System.out.println("인원을 변경합니다.");
-				new CustomerInsert(tablenum);
+				new CustomerInsert(tablenum,"change");
 				break;
 			case "음료 주문":
 				System.out.println("음료를 주문합니다.");
-				
+				new MenuOrder(tablenum);
 				break;
 			case "취소":
 				System.out.println("delete reached customernum: " + tables[tablenum].customerNumber);
@@ -326,7 +326,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				new SalesTableTime();
 				break;
 			case "음료 요금":
-				
+				new SalesTableMenu();
 				break;
 
 			case "음료 관리":

@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 
-public class SalesTableTime extends JFrame implements ItemListener, ActionListener{
+public class SalesTableMenu extends JFrame implements ItemListener, ActionListener{
 
 	private JPanel contentPane;
 	private JTable table;
@@ -23,14 +23,13 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 	private JPanel panel_1;
 	private JPanel panel_2;
 	private JPopupMenu popup = new JPopupMenu("삭제 수정 컨트롤");
-	JMenuItem m_change = new JMenuItem("수정");
 	JMenuItem m_delete = new JMenuItem("삭제");
 	Choice cdate = new Choice();
 	Choice cname = new Choice();
-	CalculateTimeVO[] chart;
+	CalculateMenuVO[] chart;
 	String[] arr;
-	String[] tablename = {"날짜/시간", "Table","정산자","시간(분)","인원수","요금"};
-	ArrayList<CalculateTimeVO> list;
+	String[] tablename = {"날짜/시간", "Table","정산자","음료 종류/잔 수","요금"};
+	ArrayList<CalculateMenuVO> list;
 	
 	/**
 	 * Launch the application.
@@ -39,7 +38,7 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 	/**
 	 * Create the frame.
 	 */
-	public SalesTableTime() {
+	public SalesTableMenu() {
 		setTitle("\uC2DC\uAC04\uB2F9 \uC694\uAE08 \uC815\uC0B0");
 		
 		setBounds(100, 100, 1004, 606);
@@ -53,13 +52,13 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		table = new JTable(model);
 		
-		CalculateTimeDAO dao = new CalculateTimeDAO();
+		CalculateMenuDAO dao = new CalculateMenuDAO();
 		list = dao.list();
-		chart = new CalculateTimeVO[list.size()];
+		chart = new CalculateMenuVO[list.size()];
 		DefaultTableModel m = (DefaultTableModel)table.getModel();
 		for(int i=0;i<list.size();i++)
 		{
-			chart[i] = (CalculateTimeVO) list.get(i);
+			chart[i] = (CalculateMenuVO) list.get(i);
 			
 		}
 
@@ -171,9 +170,6 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 		table.getColumnModel().getColumn(2).setCellRenderer(celAlignCenter);
 		table.getColumnModel().getColumn(3).setPreferredWidth(30);
 		table.getColumnModel().getColumn(3).setCellRenderer(celAlignCenter);
-		table.getColumnModel().getColumn(4).setPreferredWidth(30);
-		table.getColumnModel().getColumn(4).setCellRenderer(celAlignCenter);
-		table.getColumnModel().getColumn(5).setCellRenderer(celAlignRight);
 		
 		PopupMouseListener listener = new PopupMouseListener();
 		table.addMouseListener(listener);
@@ -185,16 +181,13 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 		
 		for(int i=0;i<list.size();i++)
 		{
-			m.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+			m.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getMenuList(),chart[i].getSales()});
 			
 		}
-		m_change.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		m_delete.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		
-		m_change.addActionListener(this);
 		m_delete.addActionListener(this);
 		
-		popup.add(m_change);
 		popup.add(m_delete);
 		
 		JPanel panel = new JPanel();
@@ -238,7 +231,7 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 			for(int i=0;i<list.size();i++)
 			{
 				
-				model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+				model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getMenuList(),chart[i].getSales()});
 				tmp+=chart[i].getSales();
 			}
 		}
@@ -250,7 +243,7 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 				
 				if(cdate.getSelectedItem().equals(arr1[0]))
 				{
-					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getMenuList(),chart[i].getSales()});
 					tmp+=chart[i].getSales();
 				}
 			}
@@ -262,7 +255,7 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 				
 				if(cname.getSelectedItem().equals(new EmpDBSelectPW(chart[i].getEPW()).getEname()))
 				{
-					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getMenuList(),chart[i].getSales()});
 					tmp+=chart[i].getSales();
 				}
 			}
@@ -275,7 +268,7 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 				
 				if(cdate.getSelectedItem().equals(arr1[0]) && cname.getSelectedItem().equals(new EmpDBSelectPW(chart[i].getEPW()).getEname()))
 				{
-					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getTimeused(),chart[i].getCusnum(),chart[i].getSales()});
+					model.addRow(new Object[] {chart[i].getDate(),chart[i].getTablenum(),new EmpDBSelectPW(chart[i].getEPW()).getEname(),chart[i].getMenuList(),chart[i].getSales()});
 					tmp+=chart[i].getSales();
 				}
 			}
@@ -298,11 +291,8 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 		table.getColumnModel().getColumn(1).setCellRenderer(celAlignCenter);
 		table.getColumnModel().getColumn(2).setPreferredWidth(80);
 		table.getColumnModel().getColumn(2).setCellRenderer(celAlignCenter);
-		table.getColumnModel().getColumn(3).setPreferredWidth(30);
-		table.getColumnModel().getColumn(3).setCellRenderer(celAlignCenter);
-		table.getColumnModel().getColumn(4).setPreferredWidth(30);
-		table.getColumnModel().getColumn(4).setCellRenderer(celAlignCenter);
-		table.getColumnModel().getColumn(5).setCellRenderer(celAlignRight);
+		table.getColumnModel().getColumn(3).setPreferredWidth(140);
+		table.getColumnModel().getColumn(4).setCellRenderer(celAlignRight);
 		
 	}
 
@@ -352,20 +342,13 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 		DefaultTableModel tm = (DefaultTableModel) table.getModel();
 		String date = table.getValueAt(table.getSelectedRow(), 0).toString();
 		switch (cmd) {
-		case "수정":
-			
-			int tablenum = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 1).toString());
-			String emp = table.getValueAt(table.getSelectedRow(), 2).toString();
-			int timeUsed = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 3).toString());
-			int cusnum = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 4).toString());
-			new CalculateTimeUpdate(tm, table.getSelectedRow(), date, tablenum, emp, timeUsed, cusnum);
-			break;
+		
 		case "삭제":
 			
 			System.out.println(date);
 			
 			
-			CheckEmpAuth cea = new CheckEmpAuth(tm, table.getSelectedRow(),"time",date);
+			CheckEmpAuth cea = new CheckEmpAuth(tm, table.getSelectedRow(),"menutable",date);
 			
 			
 			break;
@@ -374,3 +357,4 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 	
 	
 }
+

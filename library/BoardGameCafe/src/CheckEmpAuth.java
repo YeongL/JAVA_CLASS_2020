@@ -21,25 +21,23 @@ public class CheckEmpAuth extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
-	String date;
+	
 	DefaultTableModel tm;
 	int row;
-	
-	boolean empchecked = false;
+	String name;
+	String type;
 	
 	/**
 	 * Create the frame.
 	 */
-	public boolean IsChecked()
-	{
-		return this.empchecked;
-	}
 	
-	public CheckEmpAuth(DefaultTableModel tm, int row) {
+	
+	public CheckEmpAuth(DefaultTableModel tm, int row,String type, String name) {
 		setTitle("\uC815\uC0B0 \uAE30\uB85D \uC0AD\uC81C");
-		this.date = date;
+		this.type = type;
 		this.tm = tm;
 		this.row = row;
+		this.name = name;
 		setBounds(100, 100, 255, 153);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -95,12 +93,24 @@ public class CheckEmpAuth extends JFrame implements ActionListener{
         		emppw+=(emppw.equals(""))? ""+cha+"" : ""+cha+"";
         	}
         	EmpDBSelectPW res = new EmpDBSelectPW(emppw);
+        	
         	if(res.getEauth().equals("사장"))
         	{
         		
-        		empchecked = true;
+        		
         		JOptionPane.showMessageDialog(null, "삭제를 성공했습니다.","삭제완료!",JOptionPane.ERROR_MESSAGE);
         		tm.removeRow(row);
+        		if(type.equals("menu"))
+        		{
+        			new MenuDBDelete(name);
+        		}
+        		else if(type.equals("time"))
+        		{
+        			new CalculateTimeDBDelete(name);
+        		}
+        		else {
+        			new CalculateMenuDBDelete(name);
+        		}
         		dispose();
         	}
         	else

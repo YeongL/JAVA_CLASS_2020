@@ -156,20 +156,18 @@ public class MenuManagement extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		DefaultTableModel tm = (DefaultTableModel) table.getModel();
 		String cmd = e.getActionCommand();
-		String menu = table.getValueAt(table.getSelectedRow(), 0).toString();
+		
 		switch(cmd) {
 		case "추가":
-			new MenuInsert();
+			new MenuInsert(tm);
 			break;
 		case "닫기":
 			dispose();
 			break;
 		case "삭제":
-			CheckEmpAuth cea = new CheckEmpAuth(tm, table.getSelectedRow());
-			if(cea.IsChecked())
-			{
-				new MenuDBDelete(menu);
-			}
+			String menu = table.getValueAt(table.getSelectedRow(), 0).toString();
+			CheckEmpAuth cea = new CheckEmpAuth(tm, table.getSelectedRow(),"menu",menu);
+			
 			break;
 		}
 	}
