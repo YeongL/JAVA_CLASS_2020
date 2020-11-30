@@ -9,7 +9,6 @@ public class EmpInsert extends JFrame implements ActionListener{
 	
 	String ch_item[] = {"사장","매니저","직원"};
 	JTextField nametxt = new JTextField(8);
-	JTextArea memoarea = new JTextArea(4,12);
 	Choice level = new Choice();
 	
 	JPasswordField pwtxt = new JPasswordField(8);
@@ -18,7 +17,6 @@ public class EmpInsert extends JFrame implements ActionListener{
 	JLabel name = new JLabel("이름: "); 
 	JLabel auth = new JLabel("권한: "); 
 	JLabel pw = new JLabel("암호: "); 
-	JLabel memo = new JLabel("메모");
 	
 	Font font = new Font("맑은 고딕", Font.BOLD,20);
 	Font font1 = new Font("맑은 고딕", Font.PLAIN,20);
@@ -36,10 +34,6 @@ public class EmpInsert extends JFrame implements ActionListener{
 		level.setFont(font1);
 		btn1.setFont(font);
 		btn2.setFont(font);
-		memo.setFont(font);
-		
-		memoarea.setFont(font1);
-		JScrollPane sp = new JScrollPane(memoarea);
 		
 		
 		Container c = getContentPane();
@@ -75,13 +69,11 @@ public class EmpInsert extends JFrame implements ActionListener{
 		//
 		panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		panel.add(memo);
 		c.add(panel);
 		
 		panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		panel.add(sp);
 		c.add(panel);
 		
 		

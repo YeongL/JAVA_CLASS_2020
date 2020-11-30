@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 
+import javax.swing.JOptionPane;
+
 public class CalculateTimeDBInsert {
 	CalculateTimeDBInsert(int tablenum, int cusnum, String date, int timeused, String epw, int sales){
 		String driver = "oracle.jdbc.driver.OracleDriver";
@@ -27,6 +29,7 @@ public class CalculateTimeDBInsert {
 			boolean b = stmt.execute(sql);
 			if (!b) {
 				System.out.println("Insert success.\n");
+				JOptionPane.showMessageDialog(null, "성공적으로 정산했습니다.","성공!",JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				System.out.println("Insert fail.\n");
 			}

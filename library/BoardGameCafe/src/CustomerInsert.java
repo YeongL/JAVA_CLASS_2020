@@ -87,7 +87,8 @@ public class CustomerInsert implements ActionListener{
 			}
 			if (cnum != 0) {
 				MainScreen.setCnum(tablenum, cnum);
-				MainScreen.timers[tablenum].CustomerNumber.setText(Integer.toString(cnum)+"Έν");;
+				MainScreen.timers[tablenum].CustomerNumber.setText(Integer.toString(cnum)+"Έν");
+				
 				frame.dispose();
 			}
 

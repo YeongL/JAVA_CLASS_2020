@@ -5,7 +5,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class MainScreen extends JFrame implements ActionListener{
+public class MainScreen extends JFrame{
 	// font 설정
 	Font font = new Font("맑은 고딕", Font.BOLD, 20);
 	Font font1 = new Font("맑은 고딕", Font.PLAIN, 20);
@@ -320,7 +320,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				new EmpDelete();
 				break;
 			case "직원 권한변경":
-				new AuthChange();
+				new AuthChange();// 여기부터 class diagram 해야함!
 				break;
 			case "시간당 요금":
 				new SalesTableTime();
@@ -338,12 +338,6 @@ public class MainScreen extends JFrame implements ActionListener{
 
 			}
 		}
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 

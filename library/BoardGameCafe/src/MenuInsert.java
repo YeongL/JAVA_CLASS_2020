@@ -128,7 +128,7 @@ public class MenuInsert extends JFrame implements ActionListener {
         	{
         		
         		new MenuDBInsert(textField_1.getText(),Integer.parseInt(textField.getText()));
-        		JOptionPane.showMessageDialog(null, "메뉴 추가를 성공했습니다.","추가완료!",JOptionPane.ERROR_MESSAGE);
+        		JOptionPane.showMessageDialog(null, "메뉴 추가를 성공했습니다.","추가완료!",JOptionPane.INFORMATION_MESSAGE);
         		tm.addRow(new Object[] {textField_1.getText().toString(),textField.getText().toString()});
         		dispose();
         	}

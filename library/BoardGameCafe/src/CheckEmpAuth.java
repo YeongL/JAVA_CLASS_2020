@@ -98,7 +98,7 @@ public class CheckEmpAuth extends JFrame implements ActionListener{
         	{
         		
         		
-        		JOptionPane.showMessageDialog(null, "삭제를 성공했습니다.","삭제완료!",JOptionPane.ERROR_MESSAGE);
+        		JOptionPane.showMessageDialog(null, "삭제를 성공했습니다.","삭제완료!",JOptionPane.INFORMATION_MESSAGE);
         		tm.removeRow(row);
         		if(type.equals("menu"))
         		{

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class EmpDBDelete {
@@ -29,6 +30,7 @@ public class EmpDBDelete {
 			boolean b = stmt.execute(sql);
 			if (!b) {
 				System.out.println("Delete success.\n");
+				JOptionPane.showMessageDialog(null, "성공적으로 삭제했습니다.","성공!",JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				System.out.println("Delete fail.\n");
 			}

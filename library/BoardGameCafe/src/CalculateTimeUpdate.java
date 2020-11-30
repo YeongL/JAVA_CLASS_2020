@@ -147,7 +147,7 @@ public class CalculateTimeUpdate extends JFrame implements ActionListener, Docum
 		textField_4.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		panel_5.add(textField_4);
 		textField_4.setColumns(10);
-		textField_4.setText(Integer.toString(Integer.parseInt(textField_3.getText())*Integer.parseInt(textField_2.getText())*MainScreen.hourlyCost ));
+		textField_4.setText(Integer.toString(Integer.parseInt(textField_3.getText())*Integer.parseInt(textField_2.getText())*MainScreen.hourlyCost/60 ));
 		
 		JPanel panel_6 = new JPanel();
 		FlowLayout flowLayout_4 = (FlowLayout) panel_6.getLayout();
@@ -201,6 +201,7 @@ public class CalculateTimeUpdate extends JFrame implements ActionListener, Docum
         		new CalculateTimeDBUpdate(lblNewLabel_1.getText(),textField.getText(),textField_2.getText(),textField_3.getText(),textField_4.getText());
         		tm.removeRow(row);
         		tm.addRow(new Object[] {lblNewLabel_1.getText(), Integer.parseInt(textField.getText()), textField_1.getText(), Integer.parseInt(textField_2.getText()),Integer.parseInt(textField_3.getText()),Integer.parseInt(textField_4.getText())});
+        		JOptionPane.showMessageDialog(null, "성공적으로 변경했습니다!","성공!",JOptionPane.INFORMATION_MESSAGE);
         		dispose();
         	}
         	else

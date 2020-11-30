@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 public class EmpDBInsert {
 	EmpDBInsert(String ename, String eauth,String epw){
 		String driver = "oracle.jdbc.driver.OracleDriver";
@@ -23,6 +25,7 @@ public class EmpDBInsert {
 			boolean b = stmt.execute(sql);
 			if (!b) {
 				System.out.println("Insert success.\n");
+				JOptionPane.showMessageDialog(null, "성공적으로 등록했습니다.","성공!",JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				System.out.println("Insert fail.\n");
 			}

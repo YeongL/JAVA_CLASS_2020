@@ -118,7 +118,7 @@ public class HourlyCostChange extends JFrame implements ActionListener {
         	if(res.getEauth().equals("사장"))
         	{
         		MainScreen.hourlyCost = Integer.parseInt(textField_1.getText());
-        		JOptionPane.showMessageDialog(null, "시간당 요금이 재 설정되었습니다.","변경 완료!",JOptionPane.ERROR_MESSAGE);
+        		JOptionPane.showMessageDialog(null, "시간당 요금이 재 설정되었습니다.","변경 완료!",JOptionPane.INFORMATION_MESSAGE);
         		dispose();
         	}
         	else

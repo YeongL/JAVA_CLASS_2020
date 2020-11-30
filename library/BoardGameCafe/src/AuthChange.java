@@ -178,6 +178,7 @@ public class AuthChange extends JFrame implements ItemListener,ActionListener{
         	if(res.getEauth().equals("사장") || res.getEauth().equals("매니저"))
         	{
         		new EmpDBUpdate(empname,empauth);
+        		JOptionPane.showMessageDialog(null, "성공적으로 변경했습니다.","성공!",JOptionPane.INFORMATION_MESSAGE);
         		dispose();
         	}
         	else
