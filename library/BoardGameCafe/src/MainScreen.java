@@ -238,7 +238,7 @@ public class MainScreen extends JFrame{
 				System.out.println("인원을 변경합니다.");
 				new CustomerInsert(tablenum,"change");
 				break;
-			case "음료 주문":
+			case "음료 주문"://여기 아직 클래스 안그렸다.
 				System.out.println("음료를 주문합니다.");
 				new MenuOrder(tablenum);
 				break;
@@ -320,20 +320,20 @@ public class MainScreen extends JFrame{
 				new EmpDelete();
 				break;
 			case "직원 권한변경":
-				new AuthChange();// 여기부터 class diagram 해야함!
+				new AuthChange();
 				break;
 			case "시간당 요금":
 				new SalesTableTime();
 				break;
 			case "음료 요금":
-				new SalesTableMenu();
+				new SalesTableMenu();// 여기부터 class diagram 해야함!
 				break;
 
 			case "음료 관리":
-				new MenuManagement();
+				new MenuManagement();//그림
 				break;
 			case "요금제 관리":
-				new HourlyCostChange();
+				new HourlyCostChange();//이건 그림
 				break;
 
 			}

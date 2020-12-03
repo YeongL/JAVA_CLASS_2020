@@ -99,7 +99,7 @@ public class EmpInsert extends JFrame implements ActionListener{
 		
 		
 		
-		setSize(240,400);
+		setSize(240,300);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
