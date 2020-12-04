@@ -67,14 +67,8 @@ public class EmpInsert extends JFrame implements ActionListener{
 		panel.add(pwtxt);
 		c.add(panel);
 		//
-		panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		c.add(panel);
 		
-		panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		c.add(panel);
 		
 		
 		nametxt.registerKeyboardAction(this, "µî·Ï", KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0),JComponent.WHEN_FOCUSED);
@@ -99,7 +93,7 @@ public class EmpInsert extends JFrame implements ActionListener{
 		
 		
 		
-		setSize(240,300);
+		setSize(240,240);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);

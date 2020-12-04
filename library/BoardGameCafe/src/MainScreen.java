@@ -160,7 +160,7 @@ public class MainScreen extends JFrame{
 		popup2.add(m_order);
 		popup2.add(m_delete);
 
-		
+		this.setBackground(new Color(255,250,240));
 
 		PopupActionListener listener1 = new PopupActionListener();
 

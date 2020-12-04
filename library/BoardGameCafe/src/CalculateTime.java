@@ -28,12 +28,13 @@ public class CalculateTime extends JFrame implements ActionListener {
 		setTitle("\uC815\uC0B0");
 		setBounds(100, 100, 333, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(176, 224, 230));
+		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(204, 255, 204));
 		contentPane.add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		
@@ -50,6 +51,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 		txtTimeUsed.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(204, 255, 204));
 		contentPane.add(panel_1);
 		panel_1.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		
@@ -71,6 +73,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 		panel_1.add(lblNewLabel_3_1);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(204, 255, 204));
 		FlowLayout flowLayout = (FlowLayout) panel_2.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		contentPane.add(panel_2);
@@ -93,6 +96,7 @@ public class CalculateTime extends JFrame implements ActionListener {
 		panel_2.add(lblNewLabel_3);
 		
 		JPanel panel_2_1 = new JPanel();
+		panel_2_1.setBackground(new Color(204, 255, 204));
 		FlowLayout flowLayout_1 = (FlowLayout) panel_2_1.getLayout();
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		contentPane.add(panel_2_1);
@@ -103,13 +107,14 @@ public class CalculateTime extends JFrame implements ActionListener {
 		
 		passwordField = new JPasswordField();
 		passwordField.setColumns(10);
-		passwordField.setBackground(new Color(255, 255, 204));
+		passwordField.setBackground(new Color(245, 255, 250));
 		passwordField.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN, 20));
 		passwordField.setEchoChar('*');
 		panel_2_1.add(passwordField);
 		passwordField.registerKeyboardAction(this, "∞·¡¶", KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0),JComponent.WHEN_FOCUSED);
 		
 		JPanel panel_2_2 = new JPanel();
+		panel_2_2.setBackground(new Color(204, 255, 204));
 		FlowLayout flowLayout_2 = (FlowLayout) panel_2_2.getLayout();
 		contentPane.add(panel_2_2);
 		
