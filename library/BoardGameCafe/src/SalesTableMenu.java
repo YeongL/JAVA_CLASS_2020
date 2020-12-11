@@ -39,7 +39,7 @@ public class SalesTableMenu extends JFrame implements ItemListener, ActionListen
 	 * Create the frame.
 	 */
 	public SalesTableMenu() {
-		setTitle("\uC2DC\uAC04\uB2F9 \uC694\uAE08 \uC815\uC0B0");
+		setTitle("\uC74C\uB8CC \uC694\uAE08 \uC815\uC0B0");
 		
 		setBounds(100, 100, 1004, 606);
 		contentPane = new JPanel();
@@ -170,6 +170,7 @@ public class SalesTableMenu extends JFrame implements ItemListener, ActionListen
 		table.getColumnModel().getColumn(2).setCellRenderer(celAlignCenter);
 		table.getColumnModel().getColumn(3).setPreferredWidth(30);
 		table.getColumnModel().getColumn(3).setCellRenderer(celAlignCenter);
+		table.getColumnModel().getColumn(4).setCellRenderer(celAlignRight);
 		
 		PopupMouseListener listener = new PopupMouseListener();
 		table.addMouseListener(listener);

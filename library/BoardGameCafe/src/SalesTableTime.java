@@ -173,8 +173,7 @@ public class SalesTableTime extends JFrame implements ItemListener, ActionListen
 		table.getColumnModel().getColumn(3).setCellRenderer(celAlignCenter);
 		table.getColumnModel().getColumn(4).setPreferredWidth(30);
 		table.getColumnModel().getColumn(4).setCellRenderer(celAlignCenter);
-		table.getColumnModel().getColumn(5).setCellRenderer(celAlignRight);
-		
+
 		PopupMouseListener listener = new PopupMouseListener();
 		table.addMouseListener(listener);
 		table.setComponentPopupMenu(popup);
