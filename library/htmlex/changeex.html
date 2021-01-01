@@ -1,0 +1,22 @@
+<html>
+ <body>
+ <img id="image" src="images/Drum.jpg" width="120" height="100" value = "Drum">
+
+ <script>
+   var num = 1;
+ function changeImage() {
+   if(num%2==0)
+   {
+     document.getElementById("image").src = "images/Drum.jpg";
+     num++;
+   }
+   else {
+     document.getElementById("image").src = "images/Penguins.jpg";
+     num++;
+   }
+
+ }
+ </script>
+ <input type="button" onclick="changeImage()" value="click!"/>
+ </body>
+</html>
